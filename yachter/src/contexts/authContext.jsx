@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import * as authService from '../services/authService';
 import usePersistedState from "../hooks/usePersistedState";
 import Path from '../paths';
-import { MemberProvider } from "./memberContext";
-import { YachtsProvider } from "./yachtsContext";
 
 const AuthContext = createContext();
 
@@ -68,11 +66,7 @@ export const AuthProvider = ({
 
     return (
         <AuthContext.Provider value={values}>
-            <YachtsProvider>
-                <MemberProvider>
-                    {children}
-                </MemberProvider>
-            </YachtsProvider>
+            {children}
         </AuthContext.Provider>
     );
 };

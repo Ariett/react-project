@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { useContext, createContext, useEffect, useState } from "react";
 
 import AuthContext from "./authContext";
 import YachtsProvider from "./yachtsContext";
@@ -10,7 +10,7 @@ import * as bookingService from "../services/bookingService";
 const MemberContext = createContext();
 
 export const MemberProvider = ({
-    children,
+    children
 }) => {
     const { userId } = useContext(AuthContext);
     const { yachtBookingHandler } = useContext(YachtsProvider);
@@ -48,8 +48,6 @@ export const MemberProvider = ({
 
     const bookingHandler = async (yachtId, startDate, endDate) => {
         let result = await yachtBookingHandler(yachtId, startDate, endDate);
-        // let result = await bookingService.createBooking({ yachtId, startDate, endDate });
-        console.log('MEMBER result', result);
         setMemberBookings(state => [...state, result]);
     };
 
