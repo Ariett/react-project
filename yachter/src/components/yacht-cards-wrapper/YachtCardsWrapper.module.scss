@@ -1,0 +1,12 @@
+.yachtsHolder {
+    display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    
+        padding: 50px;
+}
+
+.textHolder {
+    text-align: center;
+    padding-block: 20px;
+}

@@ -1,0 +1,187 @@
+:root {
+    --bs-link-color-rgb: 34, 193, 179 !important;
+    --bs-link-hover-color-rgb: 60, 83, 96 !important;
+}
+
+:root,
+#root,
+body {
+    font-family: $font-family;
+    color: $black-color;
+}
+
+* {
+    outline: none;
+    box-sizing: border-box;
+}
+
+.main {
+    min-height: 100vh;
+}
+
+// Adding the root element for higher specificity
+:root,
+#root {
+
+    .h1,
+    h1 {
+        font-weight: 600;
+    }
+
+    .h2,
+    h2,
+    .h3,
+    h3,
+    .h4,
+    h4,
+    .h5,
+    h5,
+    .h6,
+    h6 {
+        font-weight: 500;
+    }
+
+    // Forms
+    form {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 30px;
+
+        position: relative;
+        box-shadow: 0px 0px 25px $lighter-color;
+        border-radius: $border-lg;
+
+        .formRow {
+            display: flex;
+            padding: 15px 0;
+
+            // Form row with checkboxes
+            &.checkbox {
+                .inputData {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    gap: 10px;
+
+                    input[type="checkbox"] {
+                        accent-color: $primary-color;
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+
+            .inputData {
+                width: 100%;
+                height: 40px;
+                margin: 0 20px;
+                position: relative;
+
+                .underline {
+                    position: absolute;
+                    bottom: 0;
+                    height: 2px;
+                    width: 100%;
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        height: 2px;
+                        width: 100%;
+                        background: $primary-color;
+                        transform: scaleX(0);
+                        transform-origin: center;
+                        transition: transform 0.3s ease;
+                    }
+
+                    &.form_error {
+                        color: red;
+                        &::before {
+                            transform: scale(1);
+                            background: red;
+                        }
+                    }
+                }
+            }
+
+            .textarea {
+                height: 70px;
+
+                textarea {
+                    resize: none;
+                    padding-top: 10px;
+                }
+            }
+
+            .inputData input,
+            .inputData select,
+            .textarea textarea {
+                display: block;
+                width: 100%;
+                height: 100%;
+                border: none;
+                font-size: 17px;
+                border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+            }
+
+            .inputData input:focus~.underline:before,
+            .inputData select:focus~.underline:before,
+            .inputData textarea:focus~.underline:before {
+                transform: scale(1);
+            }
+        }
+    }
+
+    // Buttons -- bootstrap
+    .btn {
+        &:not(.small) {
+            margin: 20px auto;
+            font-size: $font-size-md;
+            font-weight: 500;
+        }
+
+        &.centeredBtnMgnBlock {
+            display: block;
+            margin: 20px auto;
+        }
+
+        &.centeredBtn {
+            display: block;
+            margin: 0 auto;
+        }
+
+        &.btn-primary {
+            --bs-btn-color: #FFFFFF;
+            --bs-btn-bg: #22C1B3;
+            --bs-btn-border-color: #22C1B3;
+            --bs-btn-hover-color: #FFFFFF;
+            --bs-btn-hover-bg: #072424;
+            --bs-btn-hover-border-color: #072424;
+            --bs-btn-focus-shadow-rgb: 49, 132, 253;
+            --bs-btn-active-color: #FFFFFF;
+            --bs-btn-active-bg: #22C1B3;
+            --bs-btn-active-border-color: #22C1B3;
+            --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            --bs-btn-disabled-color: #fff;
+            --bs-btn-disabled-bg: #3C5360;
+            --bs-btn-disabled-border-color: #3C5360;
+        }
+
+        &.btn-secondary {
+            --bs-btn-color: #FFFFFF;
+            --bs-btn-bg: #3C5360;
+            --bs-btn-border-color: #3C5360;
+            --bs-btn-hover-color: #FFFFFF;
+            --bs-btn-hover-bg: #072424;
+            --bs-btn-hover-border-color: #072424;
+            --bs-btn-focus-shadow-rgb: 49, 132, 253;
+            --bs-btn-active-color: #FFFFFF;
+            --bs-btn-active-bg: #3C5360;
+            --bs-btn-active-border-color: #3C5360;
+            --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            --bs-btn-disabled-color: #fff;
+            --bs-btn-disabled-bg: #3C5360;
+            --bs-btn-disabled-border-color: #3C5360;
+        }
+    }
+
+}

@@ -1,0 +1,33 @@
+@import './../../assets/styles/utils/variables.scss';
+@import './../../assets/styles/utils/reset.scss';
+
+.heroSection {
+    position: relative;
+    height: 50vh;
+
+    background-image: url('./../../assets/images/yacht-hero.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .heroTextWrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        background-color: rgba($darker-color, 0.8);
+        padding: 1.5rem 5rem;
+
+        border-radius: 10px;
+        text-align: center;
+
+        color: $true-white-color;
+
+    }
+}

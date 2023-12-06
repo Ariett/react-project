@@ -1,0 +1,77 @@
+@import '../../assets/styles/utils/variables.scss';
+
+.yachtCard {
+
+    .yachtCardImgWrapper {
+        position: relative;
+
+        .favoriteIcon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 1.5rem;
+
+
+            & .toolTip {
+                font-family: $font-family;
+                font-size: 1rem;
+                font-weight: 500;
+                
+                pointer-events: none;
+
+                // visibility: hidden;
+                opacity: 0;
+                width: 120px;
+                background-color: $primary-color;
+                color: #fff;
+                text-align: center;
+                padding: 5px 0;
+                border-radius: 6px;
+                text-shadow: none;
+
+                position: absolute;
+                bottom: calc(100% + 10px);
+                left: 50%;
+                margin-left: -60px;
+                z-index: 3;
+
+                transition: opacity ease-in-out 200ms;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    margin-left: -5px;
+                    border-width: 5px;
+                    border-style: solid;
+                    border-color: $primary-color transparent transparent transparent;
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+                text-shadow: 0px 0px 10px $true-white-color;
+
+                & .toolTip {
+                    // visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    img {
+        object-fit: cover;
+        height: 180px;
+
+        &.imgContain {
+            object-fit: contain;
+        }
+    }
+
+    // .imgContain {
+    //     object-fit: contain;
+    // }
+}
