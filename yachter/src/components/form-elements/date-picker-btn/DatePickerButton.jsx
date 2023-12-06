@@ -15,14 +15,14 @@ export default function DatePickerButton({
     yachtId
 }) {
     const { bookingHandler } = useContext(MemberContext);
-    const { getBookingDates } = useContext(YatchsContext);
+    const { yachtsBookings, getBookingDates, } = useContext(YatchsContext);
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [excludedIntervals, setExcludedIntervals] = useState([]);
 
     useEffect(() => {
-        setExcludedIntervals(() => getBookingDates(yachtId));
-    }, [yachtId, getBookingDates]);
+        setExcludedIntervals(() => getBookingDates(yachtsBookings, yachtId));
+    }, [yachtId, getBookingDates, yachtsBookings]);
 
     // Used to make the booking callback
     const prevStartDateRef = useRef(null);

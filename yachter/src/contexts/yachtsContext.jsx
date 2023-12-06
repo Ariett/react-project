@@ -14,15 +14,15 @@ export const YachtsProvider = ({
             .then(result => setYachtsBookings(result));
     }, []);
 
-    const getBookingData = (yachtId) => {
+    const getBookingData = (bookings, yachtId) => {
         // Return early if there aren't any reservations
-        if (yachtsBookings.length === 0) { return [] }
+        if (bookings.length === 0) { return [] }
 
-        return yachtsBookings.filter(booking => booking.yachtId === yachtId);
+        return bookings.filter(booking => booking.yachtId === yachtId);
     };
 
-    const getBookingDates = (yachtId) => {
-        const yachtsBookingData = getBookingData(yachtId);
+    const getBookingDates = (bookings, yachtId) => {
+        const yachtsBookingData = getBookingData(bookings, yachtId);
         // Return early if there aren't any reservations
         if (yachtsBookingData.length === 0) { return [] }
 
@@ -30,10 +30,17 @@ export const YachtsProvider = ({
             start: booking.startDate,
             end: booking.endDate,
         })));
+    };
+    
+    const yachtBookingHandler = async (yachtId, startDate, endDate) => {
+        let result = await bookingService.createBooking({yachtId, startDate, endDate});
+        setYachtsBookings(state => [...state, result]);
 
+        return result;
     };
 
     const values = {
+        yachtBookingHandler,
         yachtsBookings,
         getBookingData,
         getBookingDates,
