@@ -1504,7 +1504,10 @@
                 people: "8",
                 cabins: "3",
                 length: "39",
-                type: "Sailing yacht",
+                type: {
+                    label: "Sailing yacht",
+                    name: "sailingYacht"
+                },
                 equipment: {
                     airCondition: {
                         label: "Air Condition",
@@ -1554,7 +1557,11 @@
                 people: "8",
                 cabins: "4",
                 length: "41",
-                type: "Catamaran",
+                // type: "Catamaran",
+                type: {
+                    label: "Catamaran",
+                    name: "catamaran"
+                },
                 equipment: {
                     airCondition: {
                         label: "Air Condition",
@@ -1605,7 +1612,11 @@
                 people: "2",
                 cabins: "1",
                 length: "23",
-                type: "Motor boat",
+                // type: "Motor boat",
+                type: {
+                    label: "Motor boat",
+                    name: "motorBoat"
+                },
                 equipment: {
                     airCondition: {
                         label: "Air Condition",
@@ -1654,7 +1665,11 @@
                 people: "6",
                 cabins: "3",
                 length: "41",
-                type: "Sailing yacht",
+                // type: "Sailing yacht",
+                type: {
+                    label: "Sailing yacht",
+                    name: "sailingYacht"
+                },
                 equipment: {
                     airCondition: {
                         label: "Air Condition",
@@ -1704,7 +1719,11 @@
                 people: "5",
                 cabins: "5",
                 length: "41",
-                type: "Catamaran",
+                // type: "Catamaran",
+                type: {
+                    label: "Catamaran",
+                    name: "catamaran"
+                },
                 equipment: {
                     airCondition: {
                         label: "Air Condition",
@@ -1755,7 +1774,11 @@
                 people: "8",
                 cabins: "4",
                 length: "58",
-                type: "Motoryacht",
+                // type: "Motoryacht",
+                type: {
+                    label: "Motoryacht",
+                    name: "motoryacht"
+                },
                 equipment: {
                     airCondition: {
                         label: "Air Condition",
@@ -1806,7 +1829,11 @@
                 people: "12",
                 cabins: "5",
                 length: "66",
-                type: "Gulet",
+                // type: "Gulet",
+                type: {
+                    label: "Gulet",
+                    name: "gulet"
+                },
                 equipment: {
                     airCondition: {
                         label: "Air Condition",

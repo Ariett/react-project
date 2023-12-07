@@ -48,7 +48,8 @@ main {
         padding: 30px;
 
         position: relative;
-        box-shadow: 0px 0px 25px $lighter-color;
+        border: 3px solid $primary-color;
+        // box-shadow: 0px 0px 25px $lighter-color;
         border-radius: $border-lg;
 
         .formRow {
@@ -95,6 +96,7 @@ main {
 
                     &.form_error {
                         color: red;
+
                         &::before {
                             transform: scale(1);
                             background: red;
@@ -127,6 +129,18 @@ main {
             .inputData select:focus~.underline:before,
             .inputData textarea:focus~.underline:before {
                 transform: scale(1);
+            }
+        }
+    }
+
+    form {
+        .formRow {
+            &.formTitle {
+                position: absolute;
+                top: -50%;
+                transform: translateY(50%);
+                background: $true-white-color;
+                color: $primary-color;
             }
         }
     }

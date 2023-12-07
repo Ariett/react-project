@@ -71,6 +71,20 @@ export default function YachtCreate() {
         }));
     };
 
+    const handleYachtTypeClick = (e) => {
+        e.target.firstChild.setAttribute("disabled", "");
+    };
+
+    const onSelectChangeChange = (e) => {
+        setYachtData(state => ({
+            ...state,
+            type: {
+                name: e.target.value,
+                label: yachtFormsUtils.yachtTypes[e.target.value].label,
+            }
+        }));
+    };
+
     const heroContent = {
         title: "Add new yacht ",
         description: "Here you can add new yachts"
@@ -85,7 +99,7 @@ export default function YachtCreate() {
                     id="create"
                     onSubmit={createYachtSubmitHandler}
                     noValidate
-                    data-requiredMessage="This field is required!"
+                    data-requiredmessage="This field is required!"
                 >
                     <div className="container">
                         {/* Yacht name */}
@@ -153,16 +167,11 @@ export default function YachtCreate() {
 
 
                         {/* Yacht type */}
-                        <fieldset className="formRow" onChange={onChange}>
+                        <fieldset className="formRow">
                             <div className="inputData">
-                                <select name="type" id="type" required>
-                                    <option defaultValue="none" disabled selected>Select type *</option>
-                                    <option defaultValue="sailingYacht">Sailing yacht</option>
-                                    <option defaultValue="catamaran">Catamaran</option>
-                                    <option defaultValue="motorBoat">Motor boat</option>
-                                    <option defaultValue="motoryacht">Motoryacht</option>
-                                    <option defaultValue="gulet">Gulet</option>
-                                    <option defaultValue="woodenBoat">Wooden boat</option>
+                                <select name="type" id="type" onChange={onSelectChangeChange} onClick={handleYachtTypeClick}>
+                                    <option defaultValue="none">Select type *</option>
+                                    {Object.entries(yachtFormsUtils.yachtTypes).map((entry, index) => <option key={index} name={entry[0]} value={entry[0]}>{entry[1].label}</option>)}
                                 </select>
                                 <div className="underline"></div>
                             </div>

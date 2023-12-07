@@ -22,6 +22,7 @@ export default function YachtCard({
     images,
     name,
     description,
+    type,
     deleteYachtHandler = false
 }) {
     const { isAuthenticated, userId, isYachtsOwner } = useContext(AuthContext);
@@ -74,6 +75,7 @@ export default function YachtCard({
             </div>
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
+                <Card.Text className={style.yachtType}><i className="fa-solid fa-sailboat"></i> {type.label} </Card.Text>
                 {(userId !== _ownerId) && (
                     <>
                         <Card.Text>{trimWords(description, 5)}</Card.Text>
