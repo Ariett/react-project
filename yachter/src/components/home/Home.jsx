@@ -3,8 +3,8 @@ import MostLikedYachts from "../most-liked-yachts/MostLikedYachts"
 
 export default function Home() {
     const heroContent = {
-        title: "Home",
-        description: "lorem ipsum"
+        title: "Yachter",
+        description: "Your Ultimate Yachting Experience Awaits"
     }
     
     return (
