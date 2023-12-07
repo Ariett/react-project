@@ -35,7 +35,7 @@ export default function Navigation() {
                                     {!isYachtsOwner && (
                                         <>
                                             <NavDropdown.Item as={Link} to={Path.MemberFavoriteYachts}>Favorite yachts</NavDropdown.Item>
-                                            <NavDropdown.Item as={Link} to={Path.MemberReservations}>Reservations</NavDropdown.Item>
+                                            <NavDropdown.Item as={Link} to={Path.MemberReservations}>My reservations</NavDropdown.Item>
                                         </>
                                     )}
 

@@ -88,6 +88,7 @@ export default function YachtCard({
                         btnVariant="secondary"
                         btnStyle={{ marginLeft: "10px" }}
                         yachtId={_id}
+                        yachtName={name}
                     >
                         Book yacht
                     </DatePickerButton>

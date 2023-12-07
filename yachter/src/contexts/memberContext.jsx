@@ -46,8 +46,8 @@ export const MemberProvider = ({
         setMemberLikes(state => state.filter(like => like._id !== memberLikes[currentLikeIdIndex]._id));
     };
 
-    const reservationHandler = async (yachtId, startDate, endDate) => {
-        let result = await yachtReservationHandler(yachtId, startDate, endDate);
+    const reservationHandler = async (yachtId, yachtName, startDate, endDate) => {
+        let result = await yachtReservationHandler(yachtId, yachtName, startDate, endDate);
         setMemberReservations(state => [...state, result]);
     };
 

@@ -32,8 +32,15 @@ export const YachtsProvider = ({
         })));
     };
     
-    const yachtReservationHandler = async (yachtId, startDate, endDate) => {
-        let result = await reservationService.createReservation({yachtId, startDate, endDate});
+    const yachtReservationHandler = async (yachtId, yachtName, startDate, endDate) => {
+        let yachtLink = `http://localhost:5173/yachts/${yachtId}`;
+        let result = await reservationService.createReservation({
+            yachtId,
+            yachtName,
+            yachtLink,
+            startDate,
+            endDate
+        });
         setYachtsReservations(state => [...state, result]);
 
         return result;
