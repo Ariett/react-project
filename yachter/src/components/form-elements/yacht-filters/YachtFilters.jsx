@@ -15,7 +15,6 @@ export default function YachtFilters() {
         document.querySelectorAll(`.card`).forEach(card => {
             let cardDataSet = card.dataset.yachtequip.split(',');
             const hasCommonValues = equipment.current.every(value => cardDataSet.includes(value));
-            console.log(cardDataSet);
             
             if (equipment.current.length === 0 || hasCommonValues) {
                 card.style.display = "block";
