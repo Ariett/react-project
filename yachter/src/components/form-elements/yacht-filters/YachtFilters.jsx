@@ -4,6 +4,10 @@ import { yachtTypes, equipmentItemsObjects } from "../../../utils/yachtFormsUtil
 
 export default function YachtFilters() {
     const equipment = useRef([]);
+    // TO DO:
+    // Add search params when the form values change
+    // get search params, load initial values in the filters and filter the yachts by the them
+    // const query = useRef(new URLSearchParams());
 
     const onEquipmentChange = (e) => {
         if (e.target.checked) {
@@ -57,7 +61,7 @@ export default function YachtFilters() {
                 </fieldset>
 
 
-                {/* Yacht Type and equipment */}
+                {/* Yacht Type */}
                 <fieldset className="formRow">
                     <div className="inputData">
                         <select name="yachtType" id="yachtType" onChange={onTypeChange}>
@@ -68,6 +72,7 @@ export default function YachtFilters() {
                     </div>
                 </fieldset>
 
+                {/* Equipment */}
                 <fieldset className="formRow filtersSelect">
                     {Object.entries(equipmentItemsObjects).map((entry, index) => {
                         return (
