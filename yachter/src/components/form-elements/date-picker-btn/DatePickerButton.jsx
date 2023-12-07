@@ -14,6 +14,7 @@ export default function DatePickerButton({
     btnStyle,
     yachtId,
     yachtName,
+    yachtOwnerId
 }) {
     const { reservationCreateHandler } = useContext(MemberContext);
     const { yachtsReservations, getReservationDates, } = useContext(YatchsContext);
@@ -41,7 +42,7 @@ export default function DatePickerButton({
                 end: new Date(endDate)
             }]);
             // Perform the API call
-            reservationCreateHandler(yachtId, yachtName, startDate.getTime(), endDate.getTime());
+            reservationCreateHandler(yachtId, yachtName, yachtOwnerId, startDate.getTime(), endDate.getTime());
 
             // Update previous values
             prevStartDateRef.current = startDate;

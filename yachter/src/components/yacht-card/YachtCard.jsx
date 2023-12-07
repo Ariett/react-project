@@ -89,6 +89,7 @@ export default function YachtCard({
                         btnStyle={{ marginLeft: "10px" }}
                         yachtId={_id}
                         yachtName={name}
+                        yachtOwnerId={_ownerId}
                     >
                         Book yacht
                     </DatePickerButton>

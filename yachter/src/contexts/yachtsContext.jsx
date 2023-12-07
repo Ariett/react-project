@@ -31,11 +31,19 @@ export const YachtsProvider = ({
             end: reservation.endDate,
         })));
     };
-    
-    const yachtReservationCreateHandler = async (yachtId, yachtName, startDate, endDate) => {
+
+    const getYachtsOwnerReservations = (yachtOwnerId) => {
+        // Return early if there aren't any reservations
+        if (yachtsReservations.length === 0) { return [] }
+
+        return yachtsReservations.filter(reservation => reservation.yachtOwnerId === yachtOwnerId);
+    };
+
+    const yachtReservationCreateHandler = async (yachtId, yachtName, yachtOwnerId, startDate, endDate) => {
         let result = await reservationService.createReservation({
             yachtId,
             yachtName,
+            yachtOwnerId,
             startDate,
             endDate
         });
@@ -55,6 +63,7 @@ export const YachtsProvider = ({
         yachtsReservations,
         getReservationData,
         getReservationDates,
+        getYachtsOwnerReservations,
     };
 
     return (

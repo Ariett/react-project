@@ -1,22 +1,25 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { formatDate } from "../../../utils/generalUtils";
 import Button from "react-bootstrap/esm/Button";
-import { useContext } from "react";
+
 import MemberContext from "../../../contexts/memberContext";
+import AuthContext from "../../../contexts/authContext";
+
+import { formatDate } from "../../../utils/generalUtils";
 
 export default function ReservationRow({
     _id,
     _ownerId,
     yachtId,
     yachtName,
-    yachtLink,
     startDate,
     endDate,
     _createdOn,
     index
 }) {
     const { reservationDeleteHandler } = useContext(MemberContext);
+    const { userId } = useContext(AuthContext);
 
     const hadleDeleteClick = () => {
         reservationDeleteHandler(_id);
@@ -31,15 +34,17 @@ export default function ReservationRow({
             <td>{formatDate(startDate)}</td>
             <td>{formatDate(endDate)}</td>
 
-            <td>
-                <Button
-                    variant="danger"
-                    style={{ marginLeft: "20px" }}
-                    onClick={hadleDeleteClick}
-                >
-                    <i className="fa-solid fa-trash"></i>
-                </Button>
-            </td>
+            {userId === _ownerId && (
+                <td>
+                    <Button
+                        variant="danger"
+                        style={{ marginLeft: "20px" }}
+                        onClick={hadleDeleteClick}
+                    >
+                        <i className="fa-solid fa-trash"></i>
+                    </Button>
+                </td>
+            )}
         </tr>
     )
 }
