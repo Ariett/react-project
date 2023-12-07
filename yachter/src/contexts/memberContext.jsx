@@ -5,7 +5,7 @@ import YachtsProvider from "./yachtsContext";
 
 import * as memberService from "../services/memberService";
 import * as likesService from "../services/likesService";
-import * as bookingService from "../services/bookingService";
+import * as reservationService from "../services/reservationService";
 
 const MemberContext = createContext();
 
@@ -13,10 +13,10 @@ export const MemberProvider = ({
     children
 }) => {
     const { userId } = useContext(AuthContext);
-    const { yachtBookingHandler } = useContext(YachtsProvider);
+    const { yachtReservationHandler } = useContext(YachtsProvider);
     const [memberLikes, setMemberLikes] = useState([]);
     const [memberFavoriteYachts, setMemberFavoriteYachts] = useState([]);
-    const [memberBookings, setMemberBookings] = useState([]);
+    const [memberReservations, setMemberReservations] = useState([]);
 
     useEffect(() => {
         likesService.getMemberLikes(userId)
@@ -29,8 +29,8 @@ export const MemberProvider = ({
     }, [memberLikes]);
 
     useEffect(() => {
-        bookingService.getBookingsByMemberId(userId)
-            .then(result => setMemberBookings(result));
+        reservationService.getReservationsByMemberId(userId)
+            .then(result => setMemberReservations(result));
     }, [userId]);
 
     const likeClickHandler = async (yachtId) => {
@@ -46,9 +46,9 @@ export const MemberProvider = ({
         setMemberLikes(state => state.filter(like => like._id !== memberLikes[currentLikeIdIndex]._id));
     };
 
-    const bookingHandler = async (yachtId, startDate, endDate) => {
-        let result = await yachtBookingHandler(yachtId, startDate, endDate);
-        setMemberBookings(state => [...state, result]);
+    const reservationHandler = async (yachtId, startDate, endDate) => {
+        let result = await yachtReservationHandler(yachtId, startDate, endDate);
+        setMemberReservations(state => [...state, result]);
     };
 
     const values = {
@@ -57,8 +57,8 @@ export const MemberProvider = ({
         likeClickHandler,
         removeLikeClickHandler,
 
-        memberBookings,
-        bookingHandler,
+        memberReservations,
+        reservationHandler,
     };
 
     return (

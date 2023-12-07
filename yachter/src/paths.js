@@ -8,7 +8,7 @@ const Path = {
     // Client Links
     MemberRegister: '/members/register',
     MemberFavoriteYachts: '/members/favorite/yachts',
-    MemberBookings: '/members/bookings',
+    MemberReservations: '/members/reservations',
 
     // Provider Links
     OwnerRegister: '/owners/register',

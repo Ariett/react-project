@@ -1433,7 +1433,7 @@
                 "_createdOn": 1701868177965
             }
         },
-        bookings: {
+        reservations: {
             "94fb2343-4727-4164-b3ed-aa03992ced5c": {
                 _ownerId: "b6508142-99ad-4de7-88dd-2e6c35040251",
                 yachtId: "d3e1ce25-6391-434f-9235-17d45dfdf6d0",

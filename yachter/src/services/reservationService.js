@@ -1,13 +1,13 @@
 import * as request from '../lib/request'
-const baseUrl = 'http://localhost:3030/data/bookings';
+const baseUrl = 'http://localhost:3030/data/reservations';
 
-export const getAllBookings = async () => {
+export const getAllReservations = async () => {
     let result = await request.get(baseUrl);
 
     return result;
 };
 
-export const getBookingsByMemberId = async (memberId) => {
+export const getReservationsByMemberId = async (memberId) => {
     const query = new URLSearchParams({
         where: `_ownerId="${memberId}"`
     });
@@ -17,7 +17,7 @@ export const getBookingsByMemberId = async (memberId) => {
     return result;
 };
 
-export const getBookingsByYachtId = async (yachtId) => {
+export const getReservationsByYachtId = async (yachtId) => {
     const query = new URLSearchParams({
         where: `yachtId="${yachtId}"`
     });
@@ -27,8 +27,8 @@ export const getBookingsByYachtId = async (yachtId) => {
     return result;
 };
 
-export const createBooking = async (bookingData) => {
-    let result = await request.post(baseUrl, bookingData);
+export const createReservation = async (reservationData) => {
+    let result = await request.post(baseUrl, reservationData);
 
     return result;
 };

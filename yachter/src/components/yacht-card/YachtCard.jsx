@@ -25,7 +25,7 @@ export default function YachtCard({
     deleteYachtHandler = false
 }) {
     const { isAuthenticated, userId, isYachtsOwner } = useContext(AuthContext);
-    const { memberFavoriteYachts, likeClickHandler, removeLikeClickHandler, bookingHandler } = useContext(MemberContext);
+    const { memberFavoriteYachts, likeClickHandler, removeLikeClickHandler } = useContext(MemberContext);
     const [isFavorite, setIsFavorite] = useState(false);
 
     useEffect(() => {
@@ -45,10 +45,6 @@ export default function YachtCard({
         } else {
             removeLikeClickHandler(_id);
         }
-    };
-
-    const onBookingCLick = () => {
-        bookingHandler(_id);
     };
 
     let imageUrl = "/images/black-yachter.png";

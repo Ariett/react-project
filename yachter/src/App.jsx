@@ -15,7 +15,7 @@ import Home from "./components/home/Home";
 
 import MemberRegister from "./components/members/member-register/MemberRegister";
 import MemberFavoriteYachts from "./components/members/member-favorite-yachts/MemberFavoriteYachts";
-import MemberBookings from "./components/members/member-bookings/MemberBookings";
+import MemberReservations from "./components/members/member-reservations/MemberReservations";
 
 import OwnerRegister from "./components/yacht-owners/owner-register/OwnerRegister";
 import OwnerYachts from "./components/yacht-owners/owner-yachts/OwnerYachts";
@@ -45,7 +45,7 @@ function App() {
                             {/* Member Links */}
                             <Route path={Path.MemberRegister} element={<MemberRegister />}></Route>
                             <Route path={Path.MemberFavoriteYachts} element={<MemberFavoriteYachts />}></Route>
-                            <Route path={Path.MemberBookings} element={<MemberBookings />}></Route>
+                            <Route path={Path.MemberReservations} element={<MemberReservations />}></Route>
 
                             {/* Owner Links */}
                             <Route path={Path.OwnerRegister} element={<OwnerRegister />}></Route>
