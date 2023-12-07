@@ -56,7 +56,7 @@ export default function YachtCard({
     let iconClass = isFavorite ? 'solid' : 'regular';
 
     return (
-        <Card style={{ width: '18rem' }} className={style.yachtCard}>
+        <Card style={{ width: '18rem' }} className={style.yachtCard} data-yachttype={type.name}>
             <div className={style.yachtCardImgWrapper}>
                 {isAuthenticated && !isYachtsOwner && (
                     <i

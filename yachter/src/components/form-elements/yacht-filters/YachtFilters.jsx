@@ -17,7 +17,19 @@ export default function YachtFilters() {
     }, []);
 
     const onChange = (e) => {
-        console.log(e.target.value);
+        document.querySelectorAll(`.card[data-yachttype]`).forEach(card => {
+            if (e.target.value === "none") {
+                card.style.display = "block";
+            } else {
+                card.style.display = (card.dataset.yachttype !== e.target.value) ? "none" : "block";
+            }
+        });
+
+        let selectedYachts = document.querySelectorAll(`.card[data-yachttype=${e.target.value}]`);
+        let noYachtsTitle = document.querySelector(`.noYachts`);
+
+        noYachtsTitle.style.display = (e.target.value !== "none" && selectedYachts.length === 0) ? "block" : "none";
+
     };
 
     return (
@@ -41,6 +53,14 @@ export default function YachtFilters() {
                     </div>
                 </fieldset>
             </form>
+
+            <h2
+                className="noYachts"
+                style={{
+                    textAlign: "center",
+                    display: "none"
+                }}
+            >No yachts to display.</h2>
         </>
     )
 }
