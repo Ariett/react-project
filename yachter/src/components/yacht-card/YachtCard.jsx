@@ -21,6 +21,7 @@ export default function YachtCard({
     _ownerId,
     images,
     name,
+    equipment,
     description,
     type,
     deleteYachtHandler = false
@@ -55,8 +56,18 @@ export default function YachtCard({
 
     let iconClass = isFavorite ? 'solid' : 'regular';
 
+    let dataEquip = [];
+    if (equipment) {
+        for (const key in equipment) {
+            if (equipment[key].isChecked) {
+                dataEquip.push(key);
+            }
+        }
+    }
+
+
     return (
-        <Card style={{ width: '18rem' }} className={style.yachtCard} data-yachttype={type.name}>
+        <Card style={{ width: '18rem' }} className={style.yachtCard} data-yachttype={type.name} data-yachtequip={dataEquip} >
             <div className={style.yachtCardImgWrapper}>
                 {isAuthenticated && !isYachtsOwner && (
                     <i

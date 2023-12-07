@@ -105,33 +105,6 @@ export const equipmentItemsObjects = {
     },
 };
 
-// export const yachtTypes = [
-//     {
-//         name: "sailingYacht",
-//         label: "Sailing yacht",
-//     },
-//     {
-//         name: "catamaran",
-//         label: "Catamaran",
-//     },
-//     {
-//         name: "motorBoat",
-//         label: "Motor boat",
-//     },
-//     {
-//         name: "motoryacht",
-//         label: "Motoryacht",
-//     },
-//     {
-//         name: "gulet",
-//         label: "Gulet",
-//     },
-//     {
-//         name: "woodenBoat",
-//         label: "Wooden boat",
-//     },
-// ];
-
 export const yachtTypes = {
     sailingYacht: {
         label: "Sailing yacht",

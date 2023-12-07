@@ -135,13 +135,32 @@ main {
 
     form {
         .formRow {
-            &.formTitle {
-                position: absolute;
-                top: -50%;
-                transform: translateY(50%);
-                background: $true-white-color;
-                color: $primary-color;
+            &.filtersSelect {
+                flex-wrap: wrap;
+                gap: 30px;
+
+                .checkbox {
+                    flex-basis: calc(33.33% - 30px);
+                    .inputData {
+                        height: auto;
+                        display: flex;
+                        flex-wrap: nowrap;
+                        gap: 10px;
+
+                        input[type="checkbox"] {
+                            display: inline-block;
+                            width: max-content;
+                        }
+                    }
+                }
             }
+        }
+
+        .formTitle {
+            position: absolute;
+            top: -35px;
+            background: $true-white-color;
+            color: $primary-color;
         }
     }
 

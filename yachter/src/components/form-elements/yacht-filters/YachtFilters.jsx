@@ -1,22 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-import * as yachtService from "../../../services/yachtService";
-
-import { yachtTypes } from "../../../utils/yachtFormsUtils";
+import { yachtTypes, equipmentItemsObjects } from "../../../utils/yachtFormsUtils";
 
 export default function YachtFilters() {
-    const [yachts, setYachts] = useState([]);
-    const [activeFilters, setActiveFilters] = useState([]);
+    const [equipment, setEquipment] = useState([]);
 
-    useEffect(() => {
-        yachtService.getAll()
-            .then(result => setYachts(result))
-            .catch(error => {
-                console.log(error);
-            });
-    }, []);
+    const onEquipmentChange = (e) => {
+        console.log(cards);
+        if (e.target.checked) {
+            setEquipment(state => [...state, e.target.name]);
+        } else {
+            setEquipment(state => state.filter(item => item !== e.target.name));
+        }
 
-    const onChange = (e) => {
+        // document.querySelectorAll(`.card[data-yachttype]`).forEach(card => {
+        //     if (e.target.value === "none") {
+        //         card.style.display = "block";
+        //     } else {
+        //         card.style.display = (card.dataset.yachttype !== e.target.value) ? "none" : "block";
+        //     }
+        // });
+
+        // let selectedYachts = document.querySelectorAll(`.card[data-yachttype=${e.target.value}]`);
+        // let noYachtsTitle = document.querySelector(`.noYachts`);
+
+        // noYachtsTitle.style.display = (e.target.value !== "none" && selectedYachts.length === 0) ? "block" : "none";
+    };
+
+    const onTypeChange = (e) => {
         document.querySelectorAll(`.card[data-yachttype]`).forEach(card => {
             if (e.target.value === "none") {
                 card.style.display = "block";
@@ -32,6 +43,9 @@ export default function YachtFilters() {
 
     };
 
+    console.log(equipment);
+    // console.log(Object.entries(equipmentItemsObjects));
+
     return (
         <>
             <form>
@@ -42,15 +56,33 @@ export default function YachtFilters() {
                 </fieldset>
 
 
-                {/* Yacht Type */}
+                {/* Yacht Type and equipment */}
                 <fieldset className="formRow">
                     <div className="inputData">
-                        <select name="yachtType" id="yachtType" onChange={onChange}>
+                        <select name="yachtType" id="yachtType" onChange={onTypeChange}>
                             <option value="none">All yacht types</option>
                             {Object.entries(yachtTypes).map((entry, index) => <option key={index} name={entry[0]} value={entry[0]}>{entry[1].label}</option>)}
                         </select>
                         <div className="underline"></div>
                     </div>
+                </fieldset>
+
+                <fieldset className="formRow filtersSelect">
+                    {Object.entries(equipmentItemsObjects).map((entry, index) => {
+                        return (
+                            <div className="checkbox" key={index}>
+                                <div className="inputData">
+                                    <input
+                                        type="checkbox"
+                                        onChange={onEquipmentChange}
+                                        name={entry[0]}
+                                        id={entry[0]}
+                                    />
+                                    <label htmlFor={entry[0]}>{entry[1].label}</label>
+                                </div>
+                            </div>
+                        )
+                    })}
                 </fieldset>
             </form>
 

@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import * as yachtService from "../../services/yachtService";
 
 import Hero from "../hero/Hero";
-import YachtCardsWrapper from "../yacht-cards-wrapper/YachtCardsWrapper";
-import YachtCard from "../yacht-card/YachtCard";
 import YachtFilters from "../form-elements/yacht-filters/YachtFilters";
 import YachtList from "../yacht-list/YachtList";
 
