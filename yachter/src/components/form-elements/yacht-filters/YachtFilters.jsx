@@ -1,30 +1,28 @@
-import { useState } from "react";
+import { useRef } from "react";
 
 import { yachtTypes, equipmentItemsObjects } from "../../../utils/yachtFormsUtils";
 
 export default function YachtFilters() {
-    const [equipment, setEquipment] = useState([]);
+    const equipment = useRef([]);
 
     const onEquipmentChange = (e) => {
-        console.log(cards);
         if (e.target.checked) {
-            setEquipment(state => [...state, e.target.name]);
+            equipment.current.push(e.target.name);
         } else {
-            setEquipment(state => state.filter(item => item !== e.target.name));
+            equipment.current = equipment.current.filter(item => item !== e.target.name);
         }
 
-        // document.querySelectorAll(`.card[data-yachttype]`).forEach(card => {
-        //     if (e.target.value === "none") {
-        //         card.style.display = "block";
-        //     } else {
-        //         card.style.display = (card.dataset.yachttype !== e.target.value) ? "none" : "block";
-        //     }
-        // });
-
-        // let selectedYachts = document.querySelectorAll(`.card[data-yachttype=${e.target.value}]`);
-        // let noYachtsTitle = document.querySelector(`.noYachts`);
-
-        // noYachtsTitle.style.display = (e.target.value !== "none" && selectedYachts.length === 0) ? "block" : "none";
+        document.querySelectorAll(`.card`).forEach(card => {
+            let cardDataSet = card.dataset.yachtequip.split(',');
+            const hasCommonValues = equipment.current.every(value => cardDataSet.includes(value));
+            console.log(cardDataSet);
+            
+            if (equipment.current.length === 0 || hasCommonValues) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
     };
 
     const onTypeChange = (e) => {
@@ -40,11 +38,7 @@ export default function YachtFilters() {
         let noYachtsTitle = document.querySelector(`.noYachts`);
 
         noYachtsTitle.style.display = (e.target.value !== "none" && selectedYachts.length === 0) ? "block" : "none";
-
     };
-
-    console.log(equipment);
-    // console.log(Object.entries(equipmentItemsObjects));
 
     return (
         <>
