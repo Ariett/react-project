@@ -1419,17 +1419,17 @@
             // Kevin
             "a7872fbb-7df3-48e0-a921-fdb06976f536": {
                 "_ownerId": "b6508142-99ad-4de7-88dd-2e6c35040251",
-                "yachtId": "a954ac93-2bb1-46e1-881b-4883387086ae",
+                "yachtId": "af907593-924c-4799-851f-ac18d18f2d99",
                 "_createdOn": 1701868176745
             },
             "acff66e5-1fa7-4ee8-bc7b-24165e95c575": {
                 "_ownerId": "b6508142-99ad-4de7-88dd-2e6c35040251",
-                "yachtId": "07cdf28c-34f4-4368-8ad6-fac1ecb5a6a7",
+                "yachtId": "673cad31-a206-4f8a-b677-1a3e9cd801fd",
                 "_createdOn": 1701868177462
             },
             "874f5635-e2e6-4860-b952-f5f0975d8e12": {
                 "_ownerId": "b6508142-99ad-4de7-88dd-2e6c35040251",
-                "yachtId": "d3e1ce25-6391-434f-9235-17d45dfdf6d0",
+                "yachtId": "a9fa9345-1404-47d5-85df-5b2a4802e397",
                 "_createdOn": 1701868177965
             }
         },
@@ -1438,7 +1438,6 @@
                 _ownerId: "b6508142-99ad-4de7-88dd-2e6c35040251",
                 yachtId: "d3e1ce25-6391-434f-9235-17d45dfdf6d0",
                 yachtName: "Popay",
-                yachtLink: 'http://localhost:5173/yachts/d3e1ce25-6391-434f-9235-17d45dfdf6d0',
                 startDate: 1701813600000,
                 endDate: 1702418400000,
                 _createdOn: 1701895115232,
@@ -1447,7 +1446,6 @@
                 _ownerId: "b6508142-99ad-4de7-88dd-2e6c35040251",
                 yachtId: "07cdf28c-34f4-4368-8ad6-fac1ecb5a6a7",
                 yachtName: "Georgia",
-                yachtLink: "http://localhost:5173/yachts/07cdf28c-34f4-4368-8ad6-fac1ecb5a6a7",
                 startDate: 1702418400000,
                 endDate: 1703023200000,
                 _createdOn: 1701895121757,
@@ -1456,7 +1454,6 @@
                 _ownerId: "b6508142-99ad-4de7-88dd-2e6c35040251",
                 yachtId: "a954ac93-2bb1-46e1-881b-4883387086ae",
                 yachtName: "Dimitra",
-                yachtLink: "http://localhost:5173/yachts/a954ac93-2bb1-46e1-881b-4883387086ae",
                 startDate: 1702332000000,
                 endDate: 1703023200000,
                 _createdOn: 1701895125204,
@@ -1465,7 +1462,6 @@
                 _ownerId: "ca9b47ac-d215-4de0-b152-afbc0aa50e31",
                 yachtId: "07cdf28c-34f4-4368-8ad6-fac1ecb5a6a7",
                 yachtName: "Georgia",
-                yachtLink: "http://localhost:5173/yachts/07cdf28c-34f4-4368-8ad6-fac1ecb5a6a7",
                 startDate: 1702332000000,
                 endDate: 1702936800000,
                 _createdOn: 1701895235894,
@@ -1474,7 +1470,6 @@
                 _ownerId: "ca9b47ac-d215-4de0-b152-afbc0aa50e31",
                 yachtId: "d3e1ce25-6391-434f-9235-17d45dfdf6d0",
                 yachtName: "Popay",
-                yachtLink: 'http://localhost:5173/yachts/d3e1ce25-6391-434f-9235-17d45dfdf6d0',
                 startDate: 1703196000000,
                 endDate: 1703887200000,
                 _createdOn: 1701895237676,
@@ -1483,7 +1478,6 @@
                 _ownerId: "ca9b47ac-d215-4de0-b152-afbc0aa50e31",
                 yachtId: "a954ac93-2bb1-46e1-881b-4883387086ae",
                 yachtName: "Dimitra",
-                yachtLink: "http://localhost:5173/yachts/a954ac93-2bb1-46e1-881b-4883387086ae",
                 startDate: 1702764000000,
                 endDate: 1703368800000,
                 _createdOn: 1701895239498,

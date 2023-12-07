@@ -13,7 +13,7 @@ export const MemberProvider = ({
     children
 }) => {
     const { userId } = useContext(AuthContext);
-    const { yachtReservationHandler } = useContext(YachtsProvider);
+    const { yachtReservationCreateHandler, yachtReservationDeleteHandler } = useContext(YachtsProvider);
     const [memberLikes, setMemberLikes] = useState([]);
     const [memberFavoriteYachts, setMemberFavoriteYachts] = useState([]);
     const [memberReservations, setMemberReservations] = useState([]);
@@ -46,9 +46,14 @@ export const MemberProvider = ({
         setMemberLikes(state => state.filter(like => like._id !== memberLikes[currentLikeIdIndex]._id));
     };
 
-    const reservationHandler = async (yachtId, yachtName, startDate, endDate) => {
-        let result = await yachtReservationHandler(yachtId, yachtName, startDate, endDate);
+    const reservationCreateHandler = async (yachtId, yachtName, startDate, endDate) => {
+        let result = await yachtReservationCreateHandler(yachtId, yachtName, startDate, endDate);
         setMemberReservations(state => [...state, result]);
+    };
+    
+    const reservationDeleteHandler = async (reservationId) => {
+        await yachtReservationDeleteHandler(reservationId);
+        setMemberReservations(state => state.filter(reservation => reservation._id !== reservationId));
     };
 
     const values = {
@@ -58,7 +63,8 @@ export const MemberProvider = ({
         removeLikeClickHandler,
 
         memberReservations,
-        reservationHandler,
+        reservationCreateHandler,
+        reservationDeleteHandler,
     };
 
     return (

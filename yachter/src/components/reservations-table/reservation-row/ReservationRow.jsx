@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 
 import { formatDate } from "../../../utils/generalUtils";
+import Button from "react-bootstrap/esm/Button";
+import { useContext } from "react";
+import MemberContext from "../../../contexts/memberContext";
 
 export default function ReservationRow({
     _id,
@@ -13,6 +16,13 @@ export default function ReservationRow({
     _createdOn,
     index
 }) {
+    const { reservationDeleteHandler } = useContext(MemberContext);
+
+    const hadleDeleteClick = () => {
+        reservationDeleteHandler(_id);
+    };
+
+
     return (
         <tr>
             <td>{index + 1}</td>
@@ -22,7 +32,13 @@ export default function ReservationRow({
             <td>{formatDate(endDate)}</td>
 
             <td>
-                
+                <Button
+                    variant="danger"
+                    style={{ marginLeft: "20px" }}
+                    onClick={hadleDeleteClick}
+                >
+                    <i className="fa-solid fa-trash"></i>
+                </Button>
             </td>
         </tr>
     )

@@ -32,3 +32,5 @@ export const createReservation = async (reservationData) => {
 
     return result;
 };
+
+export const deleteReservation = async (reservationId) => await request.remove(`${baseUrl}/${reservationId}`);

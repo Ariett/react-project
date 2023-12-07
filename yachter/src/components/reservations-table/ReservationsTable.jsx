@@ -1,16 +1,20 @@
 import Table from 'react-bootstrap/Table';
+
 import ReservationRow from './reservation-row/ReservationRow';
+
+import style from "./ReservationsTable.module.scss";
 
 export default function ReservationsTable({
     reservations = []
 }) {
-
-    console.log(reservations);
-
     return (
-        <>
+        <div className={style.reservationsWrapper}>
+            {reservations.length === 0 && (
+                <h2>No reservations to display.</h2>
+            )}
+
             {reservations.length > 0 && (
-                <Table responsive>
+                <Table responsive className={style.reservationsTable}>
                     <thead>
                         <tr>
                             <th>#</th>
@@ -26,7 +30,7 @@ export default function ReservationsTable({
                     </tbody>
                 </Table>
             )}
-        </>
+        </div>
 
     );
 }

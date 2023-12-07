@@ -32,12 +32,10 @@ export const YachtsProvider = ({
         })));
     };
     
-    const yachtReservationHandler = async (yachtId, yachtName, startDate, endDate) => {
-        let yachtLink = `http://localhost:5173/yachts/${yachtId}`;
+    const yachtReservationCreateHandler = async (yachtId, yachtName, startDate, endDate) => {
         let result = await reservationService.createReservation({
             yachtId,
             yachtName,
-            yachtLink,
             startDate,
             endDate
         });
@@ -46,8 +44,14 @@ export const YachtsProvider = ({
         return result;
     };
 
+    const yachtReservationDeleteHandler = async (reservationId) => {
+        let result = await reservationService.deleteReservation(reservationId);
+        setYachtsReservations(state => state.filter(reservation => reservation._id !== reservationId));
+    };
+
     const values = {
-        yachtReservationHandler,
+        yachtReservationCreateHandler,
+        yachtReservationDeleteHandler,
         yachtsReservations,
         getReservationData,
         getReservationDates,
