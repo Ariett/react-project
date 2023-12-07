@@ -6,7 +6,7 @@ import Hero from "../../hero/Hero"
 import ReservationsTable from "../../reservations-table/ReservationsTable"
 
 export default function MemberReservations() {
-    const {memberReservations} = useContext(MemberContext);
+    const { memberReservations } = useContext(MemberContext);
     const [reservations, setReservations] = useState([]);
 
     useEffect(() => {

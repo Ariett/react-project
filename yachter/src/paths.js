@@ -15,6 +15,7 @@ const Path = {
     OwnerYachts: '/owners/yachts',
     OwnerYachtsCreate: '/owners/yachts/create',
     OwnerYachtsEdit: '/owners/yachts/:id/edit',
+    OwnerYachtsReservations: '/owners/reservations',
 
 
 };

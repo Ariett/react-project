@@ -44,6 +44,7 @@ export default function Navigation() {
                                         <>
                                             <NavDropdown.Item as={Link} to={Path.OwnerYachts}>My yachts</NavDropdown.Item>
                                             <NavDropdown.Item as={Link} to={Path.OwnerYachtsCreate}>Add new yacht</NavDropdown.Item>
+                                            <NavDropdown.Item as={Link} to={Path.OwnerYachtsReservations}>Yachts reservations</NavDropdown.Item>
                                         </>
                                     )}
 
