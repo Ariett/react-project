@@ -29,7 +29,7 @@ export default function MostLikedYachts() {
     return (
         <section className={style.mostLikedWrapper}>
             <h2>Most liked</h2>
-            {mostLiked.length > 0 && <YachtList initialYachts={mostLiked} />}
+            {mostLiked.length > 0 && <div className={style.listWrapper}><YachtList initialYachts={mostLiked} /></div>}
         </section>
     )
 }
