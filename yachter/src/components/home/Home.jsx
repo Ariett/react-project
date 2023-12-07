@@ -1,4 +1,5 @@
 import Hero from "../hero/Hero"
+import MostLikedYachts from "../most-liked-yachts/MostLikedYachts"
 
 export default function Home() {
     const heroContent = {
@@ -9,9 +10,8 @@ export default function Home() {
     return (
         <>
             <Hero {...heroContent}/>
-
-            <main>
-            </main>
+            
+            <MostLikedYachts />
         </>
     )
 }

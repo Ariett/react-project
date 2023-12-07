@@ -14,8 +14,6 @@ export const YachtsProvider = ({
             .then(result => setYachtsReservations(result));
     }, []);
 
-    console.log('yachtsReservations', yachtsReservations);
-
     const getReservationData = (reservations, yachtId) => {
         // Return early if there aren't any reservations
         if (reservations.length === 0) { return [] }

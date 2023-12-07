@@ -37,7 +37,7 @@ function App() {
 
                     <Navigation />
 
-                    <div className="main">
+                    <main>
                         <Routes>
                             <Route path={Path.Home} element={<Home />}></Route>
                             <Route path={Path.Login} element={<Login />}></Route>
@@ -57,7 +57,7 @@ function App() {
                             <Route path={Path.OwnerYachtsEdit} element={<YachtEdit />}></Route>
                             <Route path={Path.OwnerYachtsReservations} element={<OwnerYachtsReservations />}></Route>
                         </Routes>
-                    </div>
+                    </main>
 
                     <Footer />
                 </MemberProvider>
