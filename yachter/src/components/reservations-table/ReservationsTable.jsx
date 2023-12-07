@@ -26,9 +26,8 @@ export default function ReservationsTable({
                             <th>Yacht link</th>
                             <th>Start date</th>
                             <th>End date</th>
-                            {!isYachtsOwner && (
-                                <th>Actions</th>
-                            )}
+                            <th>Status</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>

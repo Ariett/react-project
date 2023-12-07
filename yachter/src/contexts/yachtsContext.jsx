@@ -46,6 +46,7 @@ export const YachtsProvider = ({
             yachtId,
             yachtName,
             yachtOwnerId,
+            status: "Created",
             startDate,
             endDate
         });
@@ -59,14 +60,19 @@ export const YachtsProvider = ({
         setYachtsReservations(state => state.filter(reservation => reservation._id !== reservationId));
     };
 
-    const yachtReservationStatusHandler = async (yachtId, status, reservationOwnerId) => {
-        // let result = await reservationService.deleteReservation(reservationId);
-        // setYachtsReservations(state => state.filter(reservation => reservation._id !== reservationId));
+    const yachtReservationStatusHandler = async (reservationId, reservationOwnerId, status) => {
+        let result = await reservationService.updateReservationStatus(reservationId, reservationOwnerId, status);
+
+        const reservationIndex = yachtsReservations.findIndex((reservation) => reservation._id === reservationId);
+        if (reservationIndex >= 0) {
+            setYachtsReservations(state => state.toSpliced(reservationIndex, 1, result));
+        }
     };
 
     const values = {
         yachtReservationCreateHandler,
         yachtReservationDeleteHandler,
+        yachtReservationStatusHandler,
         yachtsReservations,
         getReservationData,
         getReservationDates,

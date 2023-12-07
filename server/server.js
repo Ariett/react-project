@@ -1451,7 +1451,7 @@
                 yachtOwnerId: "5d28fbc2-b70f-44fb-b395-0d9b151131a1",
                 startDate: 1702418400000,
                 endDate: 1703023200000,
-                status: "Declined",
+                status: "Created",
                 _createdOn: 1701895121757,
             },
             "cdbeafb8-fa80-426f-b151-a880c447a5e2": {
@@ -1461,7 +1461,7 @@
                 yachtOwnerId: "5d28fbc2-b70f-44fb-b395-0d9b151131a1",
                 startDate: 1702332000000,
                 endDate: 1703023200000,
-                status: "Confirmed",
+                status: "Created",
                 _createdOn: 1701895125204,
             },
 
@@ -1482,7 +1482,7 @@
                 yachtOwnerId: "b18c7415-3f91-4f4a-8bfb-b0e7c4b7818e",
                 startDate: 1703109600000,
                 endDate: 1703714400000,
-                status: "Created",
+                status: "Confirmed",
                 _createdOn: 1701958226388,
             },
             "c9001adb-f93a-4234-92a9-697fc7beb617": {
@@ -1492,10 +1492,9 @@
                 yachtOwnerId: "b18c7415-3f91-4f4a-8bfb-b0e7c4b7818e",
                 startDate: 1711576800000,
                 endDate: 1712091600000,
-                status: "Created",
+                status: "Declined",
                 _createdOn: 1701958233702,
             }
-
         },
         yachts: {
             "a954ac93-2bb1-46e1-881b-4883387086ae": {

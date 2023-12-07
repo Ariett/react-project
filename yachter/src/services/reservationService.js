@@ -47,14 +47,13 @@ export const deleteReservation = async (reservationId) => await request.remove(`
 
 // Breaking the requester authorization rules
 export const updateReservationStatus = async (reservationId, reservationOwnerId, status) => {
-
     const response = await fetch(`${baseUrl}/${reservationId}`, {
         method: "PATCH",
         headers: {
             'content-type': 'application/json',
-            'X-Authorization': reservationOwnerId
+            'X-Admin': reservationOwnerId
         },
-        body: JSON.stringify(status),
+        body: JSON.stringify({status: status}),
     });
 
     if (response.status === 204) {

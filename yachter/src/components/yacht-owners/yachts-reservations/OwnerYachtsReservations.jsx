@@ -17,7 +17,7 @@ export default function OwnerYachtsReservations() {
 
     const heroContent = {
         title: 'Reservations',
-        description: 'Check the created reservations'
+        description: 'Manage yachts reservations statuses'
     }
 
     console.log(ownerYachtsReservations);
