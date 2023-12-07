@@ -12,16 +12,24 @@ export default function YachtFilters() {
             equipment.current = equipment.current.filter(item => item !== e.target.name);
         }
 
-        document.querySelectorAll(`.card`).forEach(card => {
+        let cards = document.querySelectorAll(`.card`);
+        cards.forEach(card => {
             let cardDataSet = card.dataset.yachtequip.split(',');
             const hasCommonValues = equipment.current.every(value => cardDataSet.includes(value));
-            
+
             if (equipment.current.length === 0 || hasCommonValues) {
                 card.style.display = "block";
             } else {
                 card.style.display = "none";
             }
         });
+
+        const showedCards = Array.from(cards).filter(element => {
+            const computedStyle = window.getComputedStyle(element);
+            return computedStyle.getPropertyValue('display') === 'block';
+        });
+        let noYachtsTitle = document.querySelector(`.noYachts`);
+        noYachtsTitle.style.display = (e.target.value !== "none" && showedCards.length === 0) ? "block" : "none";
     };
 
     const onTypeChange = (e) => {
