@@ -14,6 +14,8 @@ export const YachtsProvider = ({
             .then(result => setYachtsReservations(result));
     }, []);
 
+    console.log('yachtsReservations', yachtsReservations);
+
     const getReservationData = (reservations, yachtId) => {
         // Return early if there aren't any reservations
         if (reservations.length === 0) { return [] }
@@ -55,6 +57,11 @@ export const YachtsProvider = ({
     const yachtReservationDeleteHandler = async (reservationId) => {
         let result = await reservationService.deleteReservation(reservationId);
         setYachtsReservations(state => state.filter(reservation => reservation._id !== reservationId));
+    };
+
+    const yachtReservationStatusHandler = async (yachtId, status, reservationOwnerId) => {
+        // let result = await reservationService.deleteReservation(reservationId);
+        // setYachtsReservations(state => state.filter(reservation => reservation._id !== reservationId));
     };
 
     const values = {
