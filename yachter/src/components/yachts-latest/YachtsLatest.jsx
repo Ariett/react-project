@@ -10,7 +10,7 @@ export default function YachtsLatest() {
             .catch();
     }, []);
 
-    console.log(latest);
+    // console.log(latest);
 
 
     return (
