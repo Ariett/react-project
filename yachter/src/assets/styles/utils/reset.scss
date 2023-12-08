@@ -217,4 +217,9 @@ main {
         }
     }
 
+    a {
+        &.noLine {
+            text-decoration: none;
+        }
+    }
 }

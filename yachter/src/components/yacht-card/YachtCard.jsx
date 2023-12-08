@@ -12,8 +12,7 @@ import { pathToUrl } from '../../utils/pathUtils';
 
 import { trimWords } from '../../utils/generalUtils';
 
-import style from './YachtCard.module.scss'
-import DatePickerComponent from '../form-elements/date-picker/DatePickerComponent';
+import style from './YachtCard.module.scss';
 import DatePickerButton from '../form-elements/date-picker-btn/DatePickerButton';
 
 export default function YachtCard({
@@ -21,7 +20,6 @@ export default function YachtCard({
     _ownerId,
     images,
     name,
-    equipment,
     description,
     type,
     deleteYachtHandler = false
@@ -56,18 +54,8 @@ export default function YachtCard({
 
     let iconClass = isFavorite ? 'solid' : 'regular';
 
-    let dataEquip = [];
-    if (equipment) {
-        for (const key in equipment) {
-            if (equipment[key].isChecked) {
-                dataEquip.push(key);
-            }
-        }
-    }
-
-
     return (
-        <Card style={{ width: '18rem' }} className={style.yachtCard} data-yachttype={type.name} data-yachtequip={dataEquip} >
+        <Card style={{ width: '18rem' }} className={style.yachtCard} data-yachttype={type.name} >
             <div className={style.yachtCardImgWrapper}>
                 {isAuthenticated && !isYachtsOwner && (
                     <i
@@ -86,7 +74,15 @@ export default function YachtCard({
             </div>
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
-                <Card.Text className={style.yachtType}><i className="fa-solid fa-sailboat"></i> {type.label} </Card.Text>
+                <Link
+                    className='noLine'
+                    to={`${Path.AllYachts}?yachtType=${type.name}`}
+                >
+                    <Card.Text className={style.yachtType}>
+                        <i className="fa-solid fa-sailboat"></i>
+                        {type.label}
+                    </Card.Text>
+                </Link>
                 {(userId !== _ownerId) && (
                     <>
                         <Card.Text>{trimWords(description, 5)}</Card.Text>

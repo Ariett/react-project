@@ -64,6 +64,10 @@
 
     .yachtType {
         color: $primary-color;
+        margin-bottom: 20px;
+        i {
+            margin-right: 5px;
+        }
     }
 
     img {
@@ -74,8 +78,4 @@
             object-fit: contain;
         }
     }
-
-    // .imgContain {
-    //     object-fit: contain;
-    // }
 }
