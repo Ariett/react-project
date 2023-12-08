@@ -17,12 +17,3 @@ export const formatDate = (isoDate) => {
 
     return new Date(isoDate).toLocaleDateString(undefined, options);
 };
-
-export const getElementsWithDisplayBlock = (selector = '*') => {
-    let result = Array.from(document.querySelectorAll(`${selector}`)).filter(element => {
-        const computedStyle = window.getComputedStyle(element);
-        return computedStyle.getPropertyValue('display') !== 'block';
-    });
-    
-    return result;
-};
