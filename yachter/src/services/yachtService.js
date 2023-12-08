@@ -37,7 +37,7 @@ export const getOneWithOwnerData = async (yachtId) => {
     });
 
     const result = await request.get(`${baseUrl}?${query}`);
-    return result ? result[0] : [];
+    return result ? result[0] : {};
 };
 
 export const getOne = async (yachtId) => {
