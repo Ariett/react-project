@@ -1,40 +1,45 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { yachtTypes } from "../../../utils/yachtFormsUtils";
 
 export default function YachtFilters() {
-    const [yachtType, setYachtType] = useState(() => {
-        const currentUrl = new URL(window.location.href);
-        return currentUrl.searchParams.get('yachtType') || 'all';
-    });
+    const location = useLocation();
+    const navigate = useNavigate();
+    let yachtType = useRef(location.search ? location.search.split('=')[1] : 'all');
+
+    const [selectType, setSelectType] = useState();
 
     useEffect(() => {
+        // Wait for the cards to render
         setTimeout(() => {
             filterYachts();
         }, 100);
-
-        // Update URL with query parameter
-        const currentUrl = new URL(window.location.href);
-        currentUrl.searchParams.set('yachtType', yachtType);
-        window.history.pushState({}, '', currentUrl);
-    }, [yachtType]);
+        
+        yachtType.current = location.search ? location.search.split('=')[1] : 'all';
+        setSelectType(yachtType.current);
+        navigate({ search: `?yachtType=${yachtType.current}` });
+    }, [location.search]);
 
     const onTypeChange = (e) => {
-        setYachtType(e.target.value);
+        yachtType.current = e.target.value;
+        setSelectType(yachtType.current);
+        navigate({ search: `?yachtType=${yachtType.current}` });
     };
 
     const filterYachts = () => {
         document.querySelectorAll(`.card[data-yachttype]`).forEach(card => {
-            if (yachtType === "all") {
+            if (yachtType.current === "all") {
                 card.style.display = "block";
             } else {
-                card.style.display = (card.dataset.yachttype !== yachtType) ? "none" : "block";
+                card.style.display = (card.dataset.yachttype !== yachtType.current) ? "none" : "block";
             }
         });
 
-        let selectedYachts = document.querySelectorAll(`.card[data-yachttype=${yachtType}]`);
+        let selectedYachts = document.querySelectorAll(`.card[data-yachttype=${yachtType.current}]`);
         let noYachtsTitle = document.querySelector(`.noYachts`);
-        noYachtsTitle.style.display = (yachtType !== "all" && selectedYachts.length === 0) ? "block" : "none";
+        noYachtsTitle.style.display = (yachtType.current !== "all" && selectedYachts.length === 0) ? "block" : "none";
     };
 
     return (
@@ -45,10 +50,11 @@ export default function YachtFilters() {
                         <h2>Filter yachts</h2>
                     </div>
                 </fieldset>
+                
                 {/* Yacht Type */}
                 <fieldset className="formRow">
                     <div className="inputData">
-                        <select name="yachtType" id="yachtType" onChange={onTypeChange} value={yachtType}>
+                        <select name="yachtType" id="yachtType" onChange={onTypeChange} value={selectType}>
                             <option value="all">All yacht types</option>
                             {Object.entries(yachtTypes).map((entry, index) => <option key={index} name={entry[0]} value={entry[0]}>{entry[1].label}</option>)}
                         </select>
