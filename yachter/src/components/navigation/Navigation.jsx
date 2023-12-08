@@ -13,7 +13,7 @@ export default function Navigation() {
     const { email, isAuthenticated, isYachtsOwner } = useContext(AuthContext);
 
     return (
-        <>
+        <header>
             <Navbar expand="lg" className="bg-body-tertiary">
                 <Container>
                     <Navbar.Brand as={Link} to={Path.Home}>Yachter</Navbar.Brand>
@@ -57,6 +57,6 @@ export default function Navigation() {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        </>
+        </header>
     )
 }

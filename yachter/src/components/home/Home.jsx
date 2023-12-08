@@ -14,7 +14,7 @@ export default function Home() {
             
             <MostLikedYachts />
 
-            <YachtsLatest />
+            {/* <YachtsLatest /> */}
         </>
     )
 }

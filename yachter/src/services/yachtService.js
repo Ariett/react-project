@@ -30,6 +30,16 @@ export const getLatestYachts = async (yachtOwnerId) => {
     return result;
 };
 
+export const getOneWithOwnerData = async (yachtId) => {
+    const query = new URLSearchParams({
+        where: `_id="${yachtId}"`,
+        load: 'author=_ownerId:users'
+    });
+
+    const result = await request.get(`${baseUrl}?${query}`);
+    return result ? result[0] : [];
+};
+
 export const getOne = async (yachtId) => {
     const result = await request.get(`${baseUrl}/${yachtId}`);
     return result;

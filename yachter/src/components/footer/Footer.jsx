@@ -13,15 +13,17 @@ export default function Footer() {
     const { isAuthenticated } = useContext(AuthContext);
 
     return (
-        <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
-            <Container>
-                <Navbar.Brand as={Link} to={Path.Home}>Yachter</Navbar.Brand>
-                <Nav>
-                    {!isAuthenticated && (
-                        <Nav.Link as={Link} to={Path.OwnerRegister}>Join the Fleet</Nav.Link>
-                    )}
-                </Nav>
-            </Container>
-        </Navbar>
+        <footer>
+            <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
+                <Container>
+                    <Navbar.Brand as={Link} to={Path.Home}>Yachter</Navbar.Brand>
+                    <Nav>
+                        {!isAuthenticated && (
+                            <Nav.Link as={Link} to={Path.OwnerRegister}>Join the Fleet</Nav.Link>
+                        )}
+                    </Nav>
+                </Container>
+            </Navbar>
+        </footer>
     )
 }
