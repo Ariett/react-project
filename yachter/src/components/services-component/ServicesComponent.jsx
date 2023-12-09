@@ -15,7 +15,7 @@ export default function ServicesComponent() {
                     <h5>
                         Unleash Your Inner Explorer
                     </h5>
-                    <p>Browse our curated collection of the most liked yachts, discover dream destinations, and get inspired for your next maritime adventure. Start exploring today – no registration required!</p>
+                    <p>Browse our curated collection of the most liked yachts, and get inspired for your next maritime adventure. Start exploring today – no registration required!</p>
                 </Col>
 
                 <Col className={style.colWrapper}>
