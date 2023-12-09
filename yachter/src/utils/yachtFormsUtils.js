@@ -1,6 +1,6 @@
 import * as formUtils from './formsUtils';
 
-export const validateForm = (form) => {
+export const validateForm = (form, requiredFileds = []) => {
     let isValid = true;
     const formElements = form.elements;
 
@@ -9,14 +9,16 @@ export const validateForm = (form) => {
     for (let i = 0; i < formElements.length; i++) {
         const element = formElements[i];
 
-        if (element.type === 'select-one' && element.required && element.value === "Select type *") {
-            isValid = false;
-            formUtils.setErrorMessage(element.name, errorMessage);
-        }
-
-        if (element.required && !element.value) {
-            isValid = false;
-            formUtils.setErrorMessage(element.name, errorMessage);
+        if (element.required || (!!requiredFileds.length && requiredFileds.includes(element.name))) {
+            if (element.type === 'select-one' && element.value === "Select type *") {
+                isValid = false;
+                formUtils.setErrorMessage(element.name, errorMessage);
+            }
+    
+            if (!element.value) {
+                isValid = false;
+                formUtils.setErrorMessage(element.name, errorMessage);
+            }
         }
     }
 

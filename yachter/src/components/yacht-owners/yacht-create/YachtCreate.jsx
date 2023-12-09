@@ -14,6 +14,8 @@ import YachtImagesWrapper from '../yacht-edit/yacht-images-wrapper/YachtImagesWr
 import AddNewImage from '../../form-elements/add-new-image/AddNewImage';
 import EquipmentFieldset from '../../form-elements/equipment-fieldset/EquipmentFieldset';
 
+const requiredFiledNames = ['name', 'year', 'people', 'cabins', 'length', 'type'];
+
 export default function YachtCreate() {
     const [yachtData, setYachtData] = useState(yachtFormsUtils.getEmptyYachtObject());
 
@@ -22,7 +24,7 @@ export default function YachtCreate() {
     const createYachtSubmitHandler = async (e) => {
         e.preventDefault();
 
-        const isFormValid = yachtUtils.validateForm(e.target);
+        const isFormValid = yachtUtils.validateForm(e.target, requiredFiledNames);
         if (isFormValid) {
             try {
                 let result = await yachtService.create(yachtData);
@@ -76,6 +78,7 @@ export default function YachtCreate() {
     };
 
     const onSelectChangeChange = (e) => {
+        formUtils.removeErrorMessage(e.target.name);
         setYachtData(state => ({
             ...state,
             typeName: e.target.value,
@@ -126,8 +129,9 @@ export default function YachtCreate() {
                                     type="number"
                                     id="year"
                                     name="year"
-                                    placeholder="Yacht year"
+                                    placeholder="Yacht year *"
                                     onChange={onChange}
+                                    required
                                 />
                                 <div className="underline"></div>
                             </div>
@@ -136,8 +140,9 @@ export default function YachtCreate() {
                                     type="number"
                                     id="people"
                                     name="people"
-                                    placeholder="People"
+                                    placeholder="People *"
                                     onChange={onChange}
+                                    required
                                 />
                                 <div className="underline"></div>
                             </div>
@@ -150,8 +155,9 @@ export default function YachtCreate() {
                                     type="number"
                                     id="cabins"
                                     name="cabins"
-                                    placeholder="Cabins"
+                                    placeholder="Cabins *"
                                     onChange={onChange}
+                                    required
                                 />
                                 <div className="underline"></div>
                             </div>
@@ -160,8 +166,9 @@ export default function YachtCreate() {
                                     type="number"
                                     id="length"
                                     name="length"
-                                    placeholder="Length"
+                                    placeholder="Length *"
                                     onChange={onChange}
+                                    required
                                 />
                                 <div className="underline"></div>
                             </div>
