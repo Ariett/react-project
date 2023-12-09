@@ -18,6 +18,7 @@
 Yachter is a React application, designed to provide a user-friendly and immersive experience for individuals interested in exploring, booking, and interacting with yachts. Divided into distinct sections catering to different user roles, the client-side seamlessly combines functionality and aesthetics.
 
 The application is uploaded to firebase and it's accessible [HERE](https://yachter-4b746.web.app/).
+
 **NOTE:** To run as expected, the server should be initialized locally.
 
 ### User Roles
