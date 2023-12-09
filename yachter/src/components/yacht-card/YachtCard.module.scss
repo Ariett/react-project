@@ -1,6 +1,10 @@
 @import '../../assets/styles/utils/variables.scss';
 
 .yachtCard {
+    transition: box-shadow ease-in-out 200ms;
+    &:hover {
+        box-shadow: 0px 0px 20px $lighter-color;
+    }
 
     .yachtCardImgWrapper {
         position: relative;

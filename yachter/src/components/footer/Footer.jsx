@@ -16,7 +16,10 @@ export default function Footer() {
         <footer>
             <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
                 <Container>
-                    <Navbar.Brand as={Link} to={Path.Home}>Yachter</Navbar.Brand>
+                    <Navbar.Brand as={Link} to={Path.Home}>
+                        <img src="/images/yatcher-fav-white.svg" style={{ marginRight: "20px", maxWidth: "30px" }} />
+                        Yachter
+                    </Navbar.Brand>
                     <Nav>
                         {!isAuthenticated && (
                             <Nav.Link as={Link} to={Path.OwnerRegister}>Join the Fleet</Nav.Link>

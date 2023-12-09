@@ -88,11 +88,7 @@ export default function YachtDetails() {
                 )}
 
                 {/* Related yachts */}
-                <Row className="marginTLg">
-                    <Col>
-                        {(yacht.type.name && yacht._id) && <RelatedYachts type={yacht.type.name} excludedYachtId={yacht._id} />}
-                    </Col>
-                </Row>
+                {(yacht.type.name && yacht._id) && <RelatedYachts type={yacht.type.name} excludedYachtId={yacht._id} />}
 
                 {/* Yacht owner info */}
                 <Row className="marginTLg">

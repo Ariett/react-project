@@ -88,7 +88,7 @@ export default function YachtCard({
                 {(userId !== _ownerId) && (
                     <>
                         <Card.Text>{trimWords(description, 5)}</Card.Text>
-                        <Button variant="primary" as={Link} to={`/yachts/${_id}`}>Details</Button>
+                        <Link to={`/yachts/${_id}`} className='noLine withArrow'>Details</Link>
                     </>
                 )}
 

@@ -16,7 +16,10 @@ export default function Navigation() {
         <header>
             <Navbar expand="lg" className="bg-body-tertiary">
                 <Container>
-                    <Navbar.Brand as={Link} to={Path.Home}>Yachter</Navbar.Brand>
+                    <Navbar.Brand as={Link} to={Path.Home}>
+                        <img src="/images/yatcher-fav-black.svg" style={{marginRight: "20px", maxWidth: "30px"}} />
+                        Yachter
+                    </Navbar.Brand>
 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
 

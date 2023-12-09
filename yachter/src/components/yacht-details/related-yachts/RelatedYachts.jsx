@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+
+import { Row, Col } from 'react-bootstrap';
+
 import * as yachtService from "../../../services/yachtService";
 import YachtList from "../../yacht-list/YachtList";
 
@@ -15,8 +18,14 @@ export default function RelatedYachts({
 
     return (
         <>
-            <h2>Related yachts</h2>
-            <YachtList initialYachts={relatedYachts} wrapperPadding={false} />
+            {relatedYachts.length > 0 && (
+                <Row className="marginTLg">
+                    <Col>
+                        <h2>Related yachts</h2>
+                        <YachtList initialYachts={relatedYachts} wrapperPadding={false} />
+                    </Col>
+                </Row>
+            )}
         </>
     )
 }
