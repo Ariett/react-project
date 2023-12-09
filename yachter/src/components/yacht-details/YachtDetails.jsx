@@ -55,15 +55,17 @@ export default function YachtDetails() {
 
                 {/* Details and equip */}
                 <Row className="marginTSm">
-                    <Col>
-                        <h4>Details</h4>
-                        <ul>
-                            {yacht.year && <li><i className="fa-solid fa-calendar-days"></i>Year: {yacht.year}</li>}
-                            {yacht.people && <li><i className="fa-solid fa-person"></i>People: {yacht.people}</li>}
-                            {yacht.cabins && <li><i className="fa-solid fa-door-open"></i>Cabins: {yacht.cabins}</li>}
-                            {yacht.length && <li><i className="fa-solid fa-ruler"></i>Length: {yacht.length}ft</li>}
-                        </ul>
-                    </Col>
+                    {(yacht.year || yacht.people || yacht.cabins || yacht.length) && (
+                        <Col>
+                            <h4>Details</h4>
+                            <ul>
+                                {yacht.year && <li><i className="fa-solid fa-calendar-days"></i>Year: {yacht.year}</li>}
+                                {yacht.people && <li><i className="fa-solid fa-person"></i>People: {yacht.people}</li>}
+                                {yacht.cabins && <li><i className="fa-solid fa-door-open"></i>Cabins: {yacht.cabins}</li>}
+                                {yacht.length && <li><i className="fa-solid fa-ruler"></i>Length: {yacht.length}ft</li>}
+                            </ul>
+                        </Col>
+                    )}
                     <Col>
                         <h4>Equipment</h4>
                         <ul>
@@ -75,13 +77,15 @@ export default function YachtDetails() {
                         </ul>
                     </Col>
                 </Row>
-                
+
                 {/* Gallery */}
-                <Row className="marginTSm">
-                    <Col>
-                        <CarouselComponent images={yacht.images}></CarouselComponent>
-                    </Col>
-                </Row>
+                {yacht.images.length > 0 && (
+                    <Row className="marginTSm">
+                        <Col>
+                            <CarouselComponent images={yacht.images}></CarouselComponent>
+                        </Col>
+                    </Row>
+                )}
 
                 {/* Related yachts */}
                 <Row className="marginTLg">

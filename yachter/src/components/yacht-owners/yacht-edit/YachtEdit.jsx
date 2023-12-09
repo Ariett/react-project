@@ -115,8 +115,7 @@ export default function YachtEdit() {
     };
 
     const heroContent = {
-        title: 'Edit',
-        description: `Currently you are editing an yacht with name "${yacht.name}"`
+        title: 'Edit yacht',
     }
 
     return (
@@ -125,6 +124,12 @@ export default function YachtEdit() {
 
             {yacht && (
                 <form id="create" onSubmit={submitHandler}>
+                    <fieldset className="formRow formTitle">
+                        <div className="inputData">
+                            <h2>Edit {yacht.name}</h2>
+                        </div>
+                    </fieldset>
+                    
                     <div className="container">
                         <EquipmentFieldset
                             onCheckboxChange={onCheckboxChange}

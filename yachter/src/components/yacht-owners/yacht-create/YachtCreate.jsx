@@ -169,7 +169,7 @@ export default function YachtCreate() {
                         {/* Yacht type */}
                         <fieldset className="formRow">
                             <div className="inputData">
-                                <select name="type" id="type" onChange={onSelectChangeChange} onClick={handleYachtTypeClick}>
+                                <select name="type" id="type" onChange={onSelectChangeChange} onClick={handleYachtTypeClick} required>
                                     <option defaultValue="none">Select type *</option>
                                     {Object.entries(yachtFormsUtils.yachtTypes).map((entry, index) => <option key={index} name={entry[0]} value={entry[0]}>{entry[1].label}</option>)}
                                 </select>

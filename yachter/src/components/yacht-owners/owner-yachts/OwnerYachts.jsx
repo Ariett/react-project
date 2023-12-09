@@ -37,7 +37,7 @@ export default function OwnerYachts() {
         <>
             <Hero {...heroContent} />
 
-            <YachtCardsWrapper>
+            <YachtCardsWrapper wrapperPadding={true}>
                 {provYachts.map(yacht => (
                     <YachtCard key={yacht._id} {...yacht} deleteYachtHandler={deleteYachtHandler} />
                 ))}

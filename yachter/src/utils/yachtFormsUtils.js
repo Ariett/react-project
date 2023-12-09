@@ -4,17 +4,19 @@ export const validateForm = (form) => {
     let isValid = true;
     const formElements = form.elements;
 
+    let errorMessage = form.dataset?.requiredmessage ? form.dataset?.requiredmessage : 'Field validation failed';
+
     for (let i = 0; i < formElements.length; i++) {
         const element = formElements[i];
 
         if (element.type === 'select-one' && element.required && element.value === "Select type *") {
             isValid = false;
-            formUtils.setErrorMessage(element.name, form.dataset.requiredmessage);
+            formUtils.setErrorMessage(element.name, errorMessage);
         }
 
         if (element.required && !element.value) {
             isValid = false;
-            formUtils.setErrorMessage(element.name, form.dataset.requiredmessage);
+            formUtils.setErrorMessage(element.name, errorMessage);
         }
     }
 
