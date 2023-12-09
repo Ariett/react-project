@@ -1,4 +1,5 @@
-import * as request from '../lib/request'
+import * as request from '../lib/request';
+import * as yachtService from './yachtService';
 const baseUrl = 'http://localhost:3030/data/likes';
 
 export const getAllLikes = async () => {
@@ -25,7 +26,9 @@ export const addLike = async (yachtId) => {
 
 export const removeLike = async (likeId) => await request.remove(`${baseUrl}/${likeId}`);
 
-export const getMostLiked = (allLikes, allYachts) => {
+export const getMostLiked = async () => {
+    let allLikes = await getAllLikes();
+    let allYachts = await yachtService.getAll();
 
     // Create a map to store the like counts for each yacht
     const likeCounts = new Map();
@@ -45,8 +48,8 @@ export const getMostLiked = (allLikes, allYachts) => {
 
     // Sort yachtsArray based on like counts and _createdOn
     allYachts.sort((a, b) => {
-        const likesA = likeCounts.get(a.id) || 0;
-        const likesB = likeCounts.get(b.id) || 0;
+        const likesA = likeCounts.get(a._id) || 0;
+        const likesB = likeCounts.get(b._id) || 0;
 
         // If likes are equal, sort by _createdOn
         if (likesA === likesB) {
