@@ -14,6 +14,9 @@ export default function RelatedYachts({
     }, [type, excludedYachtId]);
 
     return (
-        <YachtList initialYachts={relatedYachts} wrapperPadding={false} />
+        <>
+            <h2>Related yachts</h2>
+            <YachtList initialYachts={relatedYachts} wrapperPadding={false} />
+        </>
     )
 }

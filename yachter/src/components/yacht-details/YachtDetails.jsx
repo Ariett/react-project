@@ -39,7 +39,7 @@ export default function YachtDetails() {
         <>
             <Hero {...heroContent} />
 
-            <Container className={style.detailsContainer}>
+            <Container className={`marginBlockLg ${style.detailsContainer}`}>
                 {/* Type and description */}
                 <Row>
                     <Col>
@@ -54,7 +54,7 @@ export default function YachtDetails() {
                 </Row>
 
                 {/* Details and equip */}
-                <Row className={style.marginTSm}>
+                <Row className="marginTSm">
                     <Col>
                         <h4>Details</h4>
                         <ul>
@@ -77,29 +77,28 @@ export default function YachtDetails() {
                 </Row>
                 
                 {/* Gallery */}
-                <Row className={style.marginTSm}>
+                <Row className="marginTSm">
                     <Col>
                         <CarouselComponent images={yacht.images}></CarouselComponent>
                     </Col>
                 </Row>
 
                 {/* Related yachts */}
-                <Row className={style.marginTLg}>
+                <Row className="marginTLg">
                     <Col>
-                        <h2>You might also like</h2>
                         {(yacht.type.name && yacht._id) && <RelatedYachts type={yacht.type.name} excludedYachtId={yacht._id} />}
                     </Col>
                 </Row>
 
                 {/* Yacht owner info */}
-                <Row className={style.marginTLg}>
+                <Row className="marginTLg">
                     <h2>About {yacht.author.companyName}</h2>
                     <div>
                         {yacht.author.companyDescription}
                     </div>
                 </Row>
 
-                <Row className={style.marginTSm}>
+                <Row className="marginTSm">
                     <Col>
                         <h4>Contacts</h4>
                         <ul>
