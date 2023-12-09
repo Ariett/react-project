@@ -2,18 +2,20 @@
 
 | Contents
 |---
-| [Client Side](#client-side)
-| - [User Roles](#user-roles)
+| [Client side](#client-side)
+| - [User roles](#user-roles)
 |   - [Guest part](#guest-part)
 |   - [Member part](#member-part)
 |   - [Yacht owner part](#yacht-owner-part)
-| [Server Side](#server)
-| - [Mock Data](#mock-data)
-| - [Detailed Information](#detailed-information)
+| [Project structure](#project-structure)
+|   - [Components](#yachter)
+| [Server side](#server)
+| - [Mock data](#mock-data)
+| - [Detailed information](#detailed-information)
 
 ## Client Side
 
-Yachter Application is a React application, designed to provide a user-friendly and immersive experience for individuals interested in exploring, booking, and interacting with yachts. Divided into distinct sections catering to different user roles, the client-side seamlessly combines functionality and aesthetics.
+Yachter is a React application, designed to provide a user-friendly and immersive experience for individuals interested in exploring, booking, and interacting with yachts. Divided into distinct sections catering to different user roles, the client-side seamlessly combines functionality and aesthetics.
 
 ### User Roles
 
@@ -42,6 +44,16 @@ Yachter Application is a React application, designed to provide a user-friendly 
 - **Features:**
   - Add, edit, update, and delete yachts from their fleet.
   - Change statuses of reservations - confirm or decline.
+
+## Project structure
+
+The project has 2 folders, one for the React application (yachter) and one for the server.
+
+### Components
+
+The application has a variaty of components most of which are shared.
+
+The components specific to the user type are in members and yacht-owner folders.
 
 ## Server Side
 
