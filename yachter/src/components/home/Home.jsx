@@ -5,7 +5,7 @@ import YachtsLatest from "../yachts-latest/YachtsLatest"
 export default function Home() {
     const heroContent = {
         title: "Yachter",
-        description: "Your Ultimate Yachting Experience Awaits"
+        description: "Your ultimate yachting experience awaits"
     }
     
     return (

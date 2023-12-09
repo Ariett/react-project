@@ -70,6 +70,59 @@ export const getEmptyYachtObject = () => {
     });
 };
 
+export const getEmptyYachtObjectWithAuthor = () => {
+    return ({
+        author: {
+            companyName: "",
+            companyDescription: "",
+        },
+        _ownerId: "",
+        name: "",
+        year: "",
+        people: "",
+        cabins: "",
+        length: "",
+        type: "",
+        equipment: {
+            airCondition: {
+                label: "Air Condition",
+                isChecked: false
+            },
+            autopilot: {
+                label: "Autopilot",
+                isChecked: false
+            },
+            divingEquipment: {
+                label: "Diving Equipment",
+                isChecked: false
+            },
+            gameConsole: {
+                label: "Game Console",
+                isChecked: false
+            },
+            heating: {
+                label: "Heating",
+                isChecked: false
+            },
+            radar: {
+                label: "Radar",
+                isChecked: false
+            },
+            iceMaker: {
+                label: "Ice Maker",
+                isChecked: false
+            },
+            refrigerator: {
+                label: "Refrigerator",
+                isChecked: false
+            },
+        },
+        images: [],
+        description: "",
+        _createdOn: "",
+    });
+};
+
 export const equipmentItemsObjects = {
     airCondition: {
         label: "Air Condition",
