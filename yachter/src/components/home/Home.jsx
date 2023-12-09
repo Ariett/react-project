@@ -6,6 +6,11 @@ export default function Home() {
         title: "Yachter",
         description: "Your ultimate yachting experience awaits"
     }
+
+    // TO PRESENT Error Boundry
+    // if(true) {
+    //     throw new Error("Home Error");
+    // }
     
     return (
         <>

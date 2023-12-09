@@ -4,6 +4,7 @@ const Path = {
     YachtsDetails: '/yachts/:id',
     Login: '/login',
     Logout: '/logout',
+    NotFound: '/404',
 
     // Client Links
     MemberRegister: '/members/register',
