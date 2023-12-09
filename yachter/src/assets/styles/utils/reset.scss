@@ -190,6 +190,8 @@ main {
 
     // Buttons -- bootstrap
     .btn {
+        transition: all ease-in-out 200ms;
+
         &:not(.small) {
             margin: 20px auto;
             font-size: $font-size-md;
@@ -242,8 +244,24 @@ main {
     }
 
     a {
+        transition: color ease-in-out 200ms;
         &.noLine {
             text-decoration: none;
+        }
+
+        &.withArrow {
+            &::after {
+                content: "\f054";
+                font-family: $font-awesome;
+                font-weight: 900;
+                margin-left: 5px;
+                transition: margin ease-in-out 200ms;
+            }
+            &:hover {
+                &::after {
+                    margin-left: 10px;
+                }
+            }
         }
     }
 
