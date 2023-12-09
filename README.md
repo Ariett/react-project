@@ -8,7 +8,7 @@
 |   - [Member part](#member-part)
 |   - [Yacht owner part](#yacht-owner-part)
 | [Project structure](#project-structure)
-|   - [Components](#yachter)
+|   - [Components](#components)
 | [Server side](#server)
 | - [Mock data](#mock-data)
 | - [Detailed information](#detailed-information)
