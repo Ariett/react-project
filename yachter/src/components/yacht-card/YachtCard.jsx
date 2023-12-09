@@ -22,6 +22,8 @@ export default function YachtCard({
     name,
     description,
     type,
+    typeName,
+    typeLabel,
     deleteYachtHandler = false
 }) {
     const { isAuthenticated, userId, isYachtsOwner } = useContext(AuthContext);
@@ -55,7 +57,7 @@ export default function YachtCard({
     let iconClass = isFavorite ? 'solid' : 'regular';
 
     return (
-        <Card style={{ width: '18rem' }} className={style.yachtCard} data-yachttype={type.name} >
+        <Card style={{ width: '18rem' }} className={style.yachtCard} data-yachttype={typeName} >
             <div className={style.yachtCardImgWrapper}>
                 {isAuthenticated && !isYachtsOwner && (
                     <i
@@ -76,11 +78,11 @@ export default function YachtCard({
                 <Card.Title>{name}</Card.Title>
                 <Link
                     className='noLine'
-                    to={`${Path.AllYachts}?yachtType=${type.name}`}
+                    to={`${Path.AllYachts}?yachtType=${typeName}`}
                 >
                     <Card.Text className={style.yachtType}>
                         <i className="fa-solid fa-sailboat"></i>
-                        {type.label}
+                        {typeLabel}
                     </Card.Text>
                 </Link>
                 {(userId !== _ownerId) && (

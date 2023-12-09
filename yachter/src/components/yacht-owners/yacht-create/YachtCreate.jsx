@@ -78,6 +78,8 @@ export default function YachtCreate() {
     const onSelectChangeChange = (e) => {
         setYachtData(state => ({
             ...state,
+            typeName: e.target.value,
+            typeLabel: yachtFormsUtils.yachtTypes[e.target.value].label,
             type: {
                 name: e.target.value,
                 label: yachtFormsUtils.yachtTypes[e.target.value].label,

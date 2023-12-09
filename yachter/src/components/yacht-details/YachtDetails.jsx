@@ -44,9 +44,9 @@ export default function YachtDetails() {
                 <Row>
                     <Col>
                         <h2>About the yacht</h2>
-                        <Link className='noLine' to={`${Path.AllYachts}?yachtType=${yacht.type.name}`} >
+                        <Link className='noLine' to={`${Path.AllYachts}?yachtType=${yacht.typeName}`} >
                             <i className="fa-solid fa-sailboat"></i>
-                            {yacht.type.label}
+                            {yacht.typeLabel}
                         </Link>
                         <br />
                         {yacht.description}

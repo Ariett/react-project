@@ -31,7 +31,9 @@ export const getEmptyYachtObject = () => {
         people: "",
         cabins: "",
         length: "",
-        type: "",
+        type: {},
+        typeName: "",
+        typeLabel: "",
         equipment: {
             airCondition: {
                 label: "Air Condition",
@@ -84,7 +86,9 @@ export const getEmptyYachtObjectWithAuthor = () => {
         people: "",
         cabins: "",
         length: "",
-        type: "",
+        type: {},
+        typeName: "",
+        typeLabel: "",
         equipment: {
             airCondition: {
                 label: "Air Condition",
