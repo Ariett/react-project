@@ -34,7 +34,12 @@ export default function Register() {
             <Hero {...heroContent} />
 
             <section>
-                <form id="create" onSubmit={onSubmit}>
+                <form
+                    id="create"
+                    onSubmit={onSubmit}
+                    noValidate
+                    data-requiredmessage="This field is required!"
+                >
                     <div className="container">
                         {/* Name && password */}
                         <fieldset className="formRow">
@@ -43,19 +48,22 @@ export default function Register() {
                                     type="text"
                                     id={RegisterMemberFormKeys.MemberName}
                                     name={RegisterMemberFormKeys.MemberName}
-                                    placeholder="Name"
+                                    placeholder="Name *"
                                     onChange={onChange}
                                     value={values[RegisterMemberFormKeys.MemberName]}
+                                    required
                                 />
+                                <div className="underline"></div>
                             </div>
                             <div className="inputData">
                                 <input
                                     type="password"
                                     id={RegisterMemberFormKeys.MemberPassword}
                                     name={RegisterMemberFormKeys.MemberPassword}
-                                    placeholder="Password"
+                                    placeholder="Password *"
                                     onChange={onChange}
                                     value={values[RegisterMemberFormKeys.MemberPassword]}
+                                    required
                                 />
                                 <div className="underline"></div>
                             </div>
@@ -68,9 +76,10 @@ export default function Register() {
                                     type="text"
                                     id={RegisterMemberFormKeys.MemberEmail}
                                     name={RegisterMemberFormKeys.MemberEmail}
-                                    placeholder="Email"
+                                    placeholder="Email *"
                                     onChange={onChange}
                                     value={values[RegisterMemberFormKeys.MemberEmail]}
+                                    required
                                 />
                                 <div className="underline"></div>
                             </div>

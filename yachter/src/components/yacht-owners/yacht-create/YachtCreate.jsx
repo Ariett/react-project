@@ -71,6 +71,22 @@ export default function YachtCreate() {
         }));
     };
 
+    const handleYachtTypeClick = (e) => {
+        e.target.firstChild.setAttribute("disabled", "");
+    };
+
+    const onSelectChangeChange = (e) => {
+        setYachtData(state => ({
+            ...state,
+            typeName: e.target.value,
+            typeLabel: yachtFormsUtils.yachtTypes[e.target.value].label,
+            type: {
+                name: e.target.value,
+                label: yachtFormsUtils.yachtTypes[e.target.value].label,
+            }
+        }));
+    };
+
     const heroContent = {
         title: "Add new yacht ",
         description: "Here you can add new yachts"
@@ -85,14 +101,20 @@ export default function YachtCreate() {
                     id="create"
                     onSubmit={createYachtSubmitHandler}
                     noValidate
-                    data-requiredMessage="This field is required!"
-                    onChange={onChange}
+                    data-requiredmessage="This field is required!"
                 >
                     <div className="container">
                         {/* Yacht name */}
                         <fieldset className="formRow">
                             <div className="inputData">
-                                <input type="text" id="name" name="name" placeholder="Yacht name *" required />
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Yacht name *"
+                                    required
+                                    onChange={onChange}
+                                />
                                 <div className="underline"></div>
                             </div>
                         </fieldset>
@@ -100,11 +122,23 @@ export default function YachtCreate() {
                         {/* Yacht year and people */}
                         <fieldset className="formRow">
                             <div className="inputData">
-                                <input type="number" id="year" name="year" placeholder="Yacht year" />
+                                <input
+                                    type="number"
+                                    id="year"
+                                    name="year"
+                                    placeholder="Yacht year"
+                                    onChange={onChange}
+                                />
                                 <div className="underline"></div>
                             </div>
                             <div className="inputData">
-                                <input type="number" id="people" name="people" placeholder="People" />
+                                <input
+                                    type="number"
+                                    id="people"
+                                    name="people"
+                                    placeholder="People"
+                                    onChange={onChange}
+                                />
                                 <div className="underline"></div>
                             </div>
                         </fieldset>
@@ -112,26 +146,34 @@ export default function YachtCreate() {
                         {/* Yacht cabins and length */}
                         <fieldset className="formRow">
                             <div className="inputData">
-                                <input type="number" id="cabins" name="cabins" placeholder="Cabins" />
+                                <input
+                                    type="number"
+                                    id="cabins"
+                                    name="cabins"
+                                    placeholder="Cabins"
+                                    onChange={onChange}
+                                />
                                 <div className="underline"></div>
                             </div>
                             <div className="inputData">
-                                <input type="number" id="length" name="length" placeholder="Length" />
+                                <input
+                                    type="number"
+                                    id="length"
+                                    name="length"
+                                    placeholder="Length"
+                                    onChange={onChange}
+                                />
                                 <div className="underline"></div>
                             </div>
                         </fieldset>
 
+
                         {/* Yacht type */}
                         <fieldset className="formRow">
                             <div className="inputData">
-                                <select name="type" id="type" required>
-                                    <option defaultValue="none" disabled selected>Select type *</option>
-                                    <option defaultValue="sailingYacht">Sailing yacht</option>
-                                    <option defaultValue="catamaran">Catamaran</option>
-                                    <option defaultValue="motorBoat">Motor boat</option>
-                                    <option defaultValue="motoryacht">Motoryacht</option>
-                                    <option defaultValue="gulet">Gulet</option>
-                                    <option defaultValue="woodenBoat">Wooden boat</option>
+                                <select name="type" id="type" onChange={onSelectChangeChange} onClick={handleYachtTypeClick} required>
+                                    <option defaultValue="none">Select type *</option>
+                                    {Object.entries(yachtFormsUtils.yachtTypes).map((entry, index) => <option key={index} name={entry[0]} value={entry[0]}>{entry[1].label}</option>)}
                                 </select>
                                 <div className="underline"></div>
                             </div>
@@ -158,7 +200,13 @@ export default function YachtCreate() {
                         <fieldset>
                             <div className="formRow">
                                 <div className="inputData textarea">
-                                    <textarea name="description" placeholder="Yacht description"></textarea>
+                                    <textarea
+                                        name="description"
+                                        placeholder="Yacht description"
+                                        onChange={onChange}
+                                    >
+
+                                    </textarea>
                                     <div className="underline"></div>
                                 </div>
                             </div>

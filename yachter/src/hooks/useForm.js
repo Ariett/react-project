@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import * as yachtFormsUtils from "../utils/yachtFormsUtils";
+
 export default function useForm(submitHandler, initialValues) {
     const [values, setValues] = useState(initialValues);
 
@@ -13,7 +15,11 @@ export default function useForm(submitHandler, initialValues) {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        submitHandler(values);
+        let isValid = yachtFormsUtils.validateForm(e.target);
+
+        if (isValid) {
+            submitHandler(values);
+        }
     };
 
     return {

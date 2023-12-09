@@ -48,7 +48,12 @@ export default function OwnerRegister() {
             <Hero {...heroContent} />
 
             <section>
-                <form id="create" onSubmit={onSubmit}>
+                <form
+                    id="create"
+                    onSubmit={onSubmit}
+                    noValidate
+                    data-requiredmessage="This field is required!"
+                >
                     <div className="container">
                         {/* Email && password */}
                         <fieldset className="formRow">
@@ -57,9 +62,10 @@ export default function OwnerRegister() {
                                     type="text"
                                     id={RegisterOwnerFormKeys.CompanyEmail}
                                     name={RegisterOwnerFormKeys.CompanyEmail}
-                                    placeholder="Company Email"
+                                    placeholder="Company Email *"
                                     onChange={onChange}
                                     value={values[RegisterOwnerFormKeys.CompanyEmail]}
+                                    required
                                 />
                                 <div className="underline"></div>
                             </div>
@@ -68,9 +74,10 @@ export default function OwnerRegister() {
                                     type="password"
                                     id={RegisterOwnerFormKeys.CompanyPassword}
                                     name={RegisterOwnerFormKeys.CompanyPassword}
-                                    placeholder="Password"
+                                    placeholder="Password *"
                                     onChange={onChange}
                                     value={values[RegisterOwnerFormKeys.CompanyPassword]}
+                                    required
                                 />
                                 <div className="underline"></div>
                             </div>
@@ -83,19 +90,22 @@ export default function OwnerRegister() {
                                     type="text"
                                     id={RegisterOwnerFormKeys.CompanyName}
                                     name={RegisterOwnerFormKeys.CompanyName}
-                                    placeholder="Company Name"
+                                    placeholder="Company Name *"
                                     onChange={onChange}
                                     value={values[RegisterOwnerFormKeys.CompanyName]}
+                                    required
                                 />
+                                <div className="underline"></div>
                             </div>
                             <div className="inputData">
                                 <input
                                     type="number"
                                     id={RegisterOwnerFormKeys.CompanyPhone}
                                     name={RegisterOwnerFormKeys.CompanyPhone}
-                                    placeholder="Company Phone"
+                                    placeholder="Company Phone *"
                                     onChange={onChange}
                                     value={values[RegisterOwnerFormKeys.CompanyPhone]}
+                                    required
                                 />
                                 <div className="underline"></div>
                             </div>

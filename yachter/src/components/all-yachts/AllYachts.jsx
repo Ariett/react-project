@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import * as yachtService from "../../services/yachtService";
 
 import Hero from "../hero/Hero";
-import YachtCardsWrapper from "../yacht-cards-wrapper/YachtCardsWrapper";
-import YachtCard from "../yacht-card/YachtCard";
+import YachtFilters from "../form-elements/yacht-filters/YachtFilters";
+import YachtList from "../yacht-list/YachtList";
 
 export default function AllYachts() {
     const [yachts, setYachts] = useState([]);
@@ -25,9 +25,9 @@ export default function AllYachts() {
         <>
             {heroContent && <Hero {...heroContent} />}
 
-            <YachtCardsWrapper>
-                {yachts.map(yacht => (<YachtCard key={yacht._id} {...yacht} />))}
-            </YachtCardsWrapper>
+            <YachtFilters />
+
+            <YachtList initialYachts={yachts} />
         </>
     )
 }

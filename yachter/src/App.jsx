@@ -12,15 +12,18 @@ import Footer from "./components/footer/Footer";
 import AllYachts from "./components/all-yachts/AllYachts";
 import YachtEdit from "./components/yacht-owners/yacht-edit/YachtEdit";
 import Home from "./components/home/Home";
+import YachtDetails from "./components/yacht-details/YachtDetails";
 
 import MemberRegister from "./components/members/member-register/MemberRegister";
 import MemberFavoriteYachts from "./components/members/member-favorite-yachts/MemberFavoriteYachts";
-import MemberBookings from "./components/members/member-bookings/MemberBookings";
+import MemberReservations from "./components/members/member-reservations/MemberReservations";
 
 import OwnerRegister from "./components/yacht-owners/owner-register/OwnerRegister";
 import OwnerYachts from "./components/yacht-owners/owner-yachts/OwnerYachts";
 import YachtCreate from "./components/yacht-owners/yacht-create/YachtCreate";
-import YachtDetails from "./components/yacht-details/YachtDetails";
+import OwnerYachtsReservations from "./components/yacht-owners/yachts-reservations/OwnerYachtsReservations";
+
+
 import { YachtsProvider } from "./contexts/yachtsContext";
 import { MemberProvider } from "./contexts/memberContext";
 
@@ -34,7 +37,7 @@ function App() {
 
                     <Navigation />
 
-                    <div className="main">
+                    <main>
                         <Routes>
                             <Route path={Path.Home} element={<Home />}></Route>
                             <Route path={Path.Login} element={<Login />}></Route>
@@ -45,15 +48,16 @@ function App() {
                             {/* Member Links */}
                             <Route path={Path.MemberRegister} element={<MemberRegister />}></Route>
                             <Route path={Path.MemberFavoriteYachts} element={<MemberFavoriteYachts />}></Route>
-                            <Route path={Path.MemberBookings} element={<MemberBookings />}></Route>
+                            <Route path={Path.MemberReservations} element={<MemberReservations />}></Route>
 
                             {/* Owner Links */}
                             <Route path={Path.OwnerRegister} element={<OwnerRegister />}></Route>
                             <Route path={Path.OwnerYachts} element={<OwnerYachts />}></Route>
                             <Route path={Path.OwnerYachtsCreate} element={<YachtCreate />}></Route>
                             <Route path={Path.OwnerYachtsEdit} element={<YachtEdit />}></Route>
+                            <Route path={Path.OwnerYachtsReservations} element={<OwnerYachtsReservations />}></Route>
                         </Routes>
-                    </div>
+                    </main>
 
                     <Footer />
                 </MemberProvider>

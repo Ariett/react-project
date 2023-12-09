@@ -1,0 +1,19 @@
+@import '../../assets/styles/utils/variables.scss';
+
+.detailsContainer {
+    i {
+        margin-right: 10px;
+        color: $primary-color;
+    }
+
+    ul {
+        list-style: none;
+        margin-inline: 0;
+        padding-inline: 0;
+
+        li {
+            padding-block: 10px;
+            font-size: 20px;
+        }
+    }
+}

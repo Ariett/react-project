@@ -32,7 +32,12 @@ export default function Login() {
             <Hero {...heroContent} />
 
             <section>
-                <form id="create" onSubmit={onSubmit}>
+                <form
+                    id="create"
+                    onSubmit={onSubmit}
+                    noValidate
+                    data-requiredmessage="This field is required!"
+                >
                     <div className="container">
                         {/* Name & password*/}
                         <fieldset className="formRow">
@@ -41,18 +46,21 @@ export default function Login() {
                                     type="text"
                                     id={LoginFormKeys.Email}
                                     name={LoginFormKeys.Email}
-                                    placeholder="Email"
+                                    placeholder="Email *"
                                     onChange={onChange}
+                                    required
                                     value={values[LoginFormKeys.Email]}
                                 />
+                                <div className="underline"></div>
                             </div>
                             <div className="inputData">
                                 <input
                                     type="password"
                                     id={LoginFormKeys.Password}
                                     name={LoginFormKeys.Password}
-                                    placeholder="Password"
+                                    placeholder="Password *"
                                     onChange={onChange}
+                                    required
                                     value={values[LoginFormKeys.Password]}
                                 />
                                 <div className="underline"></div>
@@ -61,13 +69,13 @@ export default function Login() {
 
                         {/* Submit */}
                         <fieldset className="formRow">
-                            <Button variant="primary" type="submit" style={{margin: '0 auto'}}>Login</Button>
+                            <Button variant="primary" type="submit" style={{ margin: '0 auto' }}>Login</Button>
                         </fieldset>
-                        
+
 
                         <fieldset className="formRow">
-                            <p style={{margin: '0 20px'}}>Don't have an account? <Link to={Path.MemberRegister}>Register now</Link></p>
-                            <p style={{margin: '0 20px'}}>Or you have a flee? <Link to={Path.OwnerRegister}>Join the team</Link></p>
+                            <p style={{ margin: '0 20px' }}>Don't have an account? <Link to={Path.MemberRegister}>Register now</Link></p>
+                            <p style={{ margin: '0 20px' }}>Or you have a flee? <Link to={Path.OwnerRegister}>Join the team</Link></p>
                         </fieldset>
                     </div >
                 </form >

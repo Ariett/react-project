@@ -13,7 +13,7 @@ export default function Navigation() {
     const { email, isAuthenticated, isYachtsOwner } = useContext(AuthContext);
 
     return (
-        <>
+        <header>
             <Navbar expand="lg" className="bg-body-tertiary">
                 <Container>
                     <Navbar.Brand as={Link} to={Path.Home}>Yachter</Navbar.Brand>
@@ -35,7 +35,7 @@ export default function Navigation() {
                                     {!isYachtsOwner && (
                                         <>
                                             <NavDropdown.Item as={Link} to={Path.MemberFavoriteYachts}>Favorite yachts</NavDropdown.Item>
-                                            <NavDropdown.Item as={Link} to={Path.MemberBookings}>Bookins</NavDropdown.Item>
+                                            <NavDropdown.Item as={Link} to={Path.MemberReservations}>My reservations</NavDropdown.Item>
                                         </>
                                     )}
 
@@ -44,6 +44,7 @@ export default function Navigation() {
                                         <>
                                             <NavDropdown.Item as={Link} to={Path.OwnerYachts}>My yachts</NavDropdown.Item>
                                             <NavDropdown.Item as={Link} to={Path.OwnerYachtsCreate}>Add new yacht</NavDropdown.Item>
+                                            <NavDropdown.Item as={Link} to={Path.OwnerYachtsReservations}>Yachts reservations</NavDropdown.Item>
                                         </>
                                     )}
 
@@ -56,6 +57,6 @@ export default function Navigation() {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        </>
+        </header>
     )
 }

@@ -12,8 +12,7 @@ import { pathToUrl } from '../../utils/pathUtils';
 
 import { trimWords } from '../../utils/generalUtils';
 
-import style from './YachtCard.module.scss'
-import DatePickerComponent from '../form-elements/date-picker/DatePickerComponent';
+import style from './YachtCard.module.scss';
 import DatePickerButton from '../form-elements/date-picker-btn/DatePickerButton';
 
 export default function YachtCard({
@@ -22,10 +21,13 @@ export default function YachtCard({
     images,
     name,
     description,
+    type,
+    typeName,
+    typeLabel,
     deleteYachtHandler = false
 }) {
     const { isAuthenticated, userId, isYachtsOwner } = useContext(AuthContext);
-    const { memberFavoriteYachts, likeClickHandler, removeLikeClickHandler, bookingHandler } = useContext(MemberContext);
+    const { memberFavoriteYachts, likeClickHandler, removeLikeClickHandler } = useContext(MemberContext);
     const [isFavorite, setIsFavorite] = useState(false);
 
     useEffect(() => {
@@ -47,10 +49,6 @@ export default function YachtCard({
         }
     };
 
-    const onBookingCLick = () => {
-        bookingHandler(_id);
-    };
-
     let imageUrl = "/images/black-yachter.png";
     if (images.length > 0) {
         imageUrl = images[0];
@@ -59,7 +57,7 @@ export default function YachtCard({
     let iconClass = isFavorite ? 'solid' : 'regular';
 
     return (
-        <Card style={{ width: '18rem' }} className={style.yachtCard}>
+        <Card style={{ width: '18rem' }} className={style.yachtCard} data-yachttype={typeName} >
             <div className={style.yachtCardImgWrapper}>
                 {isAuthenticated && !isYachtsOwner && (
                     <i
@@ -78,6 +76,15 @@ export default function YachtCard({
             </div>
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
+                <Link
+                    className='noLine'
+                    to={`${Path.AllYachts}?yachtType=${typeName}`}
+                >
+                    <Card.Text className={style.yachtType}>
+                        <i className="fa-solid fa-sailboat"></i>
+                        {typeLabel}
+                    </Card.Text>
+                </Link>
                 {(userId !== _ownerId) && (
                     <>
                         <Card.Text>{trimWords(description, 5)}</Card.Text>
@@ -92,6 +99,8 @@ export default function YachtCard({
                         btnVariant="secondary"
                         btnStyle={{ marginLeft: "10px" }}
                         yachtId={_id}
+                        yachtName={name}
+                        yachtOwnerId={_ownerId}
                     >
                         Book yacht
                     </DatePickerButton>

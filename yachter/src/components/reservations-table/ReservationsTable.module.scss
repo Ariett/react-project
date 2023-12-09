@@ -1,0 +1,28 @@
+.reservationsWrapper {
+    margin-block: 30px;
+
+    h2 {
+        text-align: center;
+    }
+
+    tr {
+        &[data-status="declined"] {
+            background-color: #fff7f7;
+        }
+
+        &[data-status="confirmed"] {
+            background-color: #f6fff6;
+        }
+        
+        td {
+            background-color: unset;
+        }
+    }
+
+    button {
+        margin: 0 !important;
+        &+button {
+            margin-left: 20px !important;
+        }
+    }
+}
