@@ -9,12 +9,18 @@ import Path from '../../paths';
 import styles from './YachtCardsWrapper.module.scss';
 
 export default function YachtCardsWrapper({
-    children
+    children,
+    wrapperPadding
 }) {
     const { isYachtsOwner } = useContext(AuthContext);
 
+    let wrapperClasses = styles.yachtsWrapper;
+    wrapperClasses += (children.length > 0) ? '' : ` ${styles.textHolder}`;
+    wrapperClasses += wrapperPadding ? ` ${styles.withPadding}` : '';
+
+
     return (
-        <section className={(children.length > 0) ? styles.yachtsHolder : styles.textHolder}>
+        <section className={wrapperClasses}>
             {children.length === 0 && (
                 <>
                     <h2>No yachts to display.</h2>

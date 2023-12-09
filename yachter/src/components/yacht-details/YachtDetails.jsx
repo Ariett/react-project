@@ -9,9 +9,9 @@ import * as yachtFormsUtils from '../../utils/yachtFormsUtils';
 
 import Path from '../../paths';
 
-
-import CarouselComponent from "../carousel/CarouselComponent";
 import Hero from "../hero/Hero";
+import CarouselComponent from "../carousel/CarouselComponent";
+import RelatedYachts from "./related-yachts/RelatedYachts";
 
 import style from "./YachtDetails.module.scss";
 
@@ -40,19 +40,21 @@ export default function YachtDetails() {
             <Hero {...heroContent} />
 
             <Container className={style.detailsContainer}>
-                <Row className={style.detailsRow}>
-                    <h2>About the yacht</h2>
-                    <div>
+                {/* Type and description */}
+                <Row>
+                    <Col>
+                        <h2>About the yacht</h2>
                         <Link className='noLine' to={`${Path.AllYachts}?yachtType=${yacht.type.name}`} >
                             <i className="fa-solid fa-sailboat"></i>
                             {yacht.type.label}
                         </Link>
                         <br />
                         {yacht.description}
-                    </div>
+                    </Col>
                 </Row>
 
-                <Row className={style.detailsRow}>
+                {/* Details and equip */}
+                <Row className={style.marginTSm}>
                     <Col>
                         <h4>Details</h4>
                         <ul>
@@ -73,22 +75,31 @@ export default function YachtDetails() {
                         </ul>
                     </Col>
                 </Row>
-
-                <Row>
+                
+                {/* Gallery */}
+                <Row className={style.marginTSm}>
                     <Col>
                         <CarouselComponent images={yacht.images}></CarouselComponent>
                     </Col>
                 </Row>
 
+                {/* Related yachts */}
+                <Row className={style.marginTLg}>
+                    <Col>
+                        <h2>You might also like</h2>
+                        {(yacht.type.name && yacht._id) && <RelatedYachts type={yacht.type.name} excludedYachtId={yacht._id} />}
+                    </Col>
+                </Row>
+
                 {/* Yacht owner info */}
-                <Row className={style.detailsRow}>
+                <Row className={style.marginTLg}>
                     <h2>About {yacht.author.companyName}</h2>
                     <div>
                         {yacht.author.companyDescription}
                     </div>
                 </Row>
-                
-                <Row className={style.detailsRow}>
+
+                <Row className={style.marginTSm}>
                     <Col>
                         <h4>Contacts</h4>
                         <ul>

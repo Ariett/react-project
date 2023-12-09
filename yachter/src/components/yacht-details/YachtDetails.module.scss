@@ -9,10 +9,6 @@
         color: $primary-color;
     }
 
-    .detailsRow {
-        margin-block: 40px;
-    }
-
     ul {
         list-style: none;
         margin-inline: 0;
@@ -22,5 +18,13 @@
             padding-block: 10px;
             font-size: 20px;
         }
+    }
+
+    .marginTLg {
+        margin-block-start: 70px;
+    }
+
+    .marginTSm {
+        margin-block-start: 30px;
     }
 }
