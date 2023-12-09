@@ -84,6 +84,7 @@ export default function DatePickerButton({
             isClearable={false}
             excludeDateIntervals={excludedIntervals}
             withPortal
+            minDate={Date.now()}
         />
     );
 };
