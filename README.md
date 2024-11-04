@@ -13,6 +13,8 @@
 | - [Mock data](#mock-data)
 | - [Detailed information](#detailed-information)
 
+## [Publicly accessble here]([#detailed-information](https://yachter-4b746.firebaseapp.com/))
+
 ## Client Side
 
 Yachter is a React application, designed to provide a user-friendly and immersive experience for individuals interested in exploring, booking, and interacting with yachts. Divided into distinct sections catering to different user roles, the client-side seamlessly combines functionality and aesthetics.
