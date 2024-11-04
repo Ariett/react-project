@@ -13,7 +13,9 @@
 | - [Mock data](#mock-data)
 | - [Detailed information](#detailed-information)
 
-## [Publicly accessble here]([#detailed-information](https://yachter-4b746.firebaseapp.com/))
+## DEMO link
+
+DEMO link [HERE](https://yachter-4b746.firebaseapp.com).
 
 ## Client Side
 
